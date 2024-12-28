@@ -1,0 +1,9 @@
+{
+  "author": "dmikalova",
+  "dependencies": [],
+  "description": "Library of functions for mod makers to simplify modifying entity quality bonuses",
+  "factorio_version": "2.0",
+  "name": "mklv-lib-quality",
+  "title": "MKLV Quality Library",
+  "version": "0.0.1"
+}

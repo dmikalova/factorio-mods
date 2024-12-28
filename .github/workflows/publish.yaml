@@ -1,0 +1,62 @@
+name: Publish Factorio Mod
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+      inputs:
+        mod-folders:
+          description: 'List of mode folders to publish'
+          default: |
+            '[
+              "lib-quality",
+              "mk2-radar",
+              "mk2-relay-station",
+              "mk2-roboport",
+              "mk2-substation",
+              "quality-all",
+              "quality-barrel",
+              "quality-beacon",
+              "quality-fluid-recipe",
+              "quality-fuel",
+              "quality-locomotive",
+              "quality-power-cell",
+              "quality-radar",
+              "quality-rail-support",
+              "quality-repair-pack",
+              "quality-roboport",
+              "quality-splitter",
+              "quality-storage-tank",
+              "quality-substation",
+              "quality-underground-belt",
+              "quality-wagons",
+              "relay-station",
+            ]'
+
+env:
+  factorioModUploaderVersion: latest
+
+jobs:
+  publish-mod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate Mod
+        uses: TheBrutalX/factorio-mod-uploader-action@v2
+        with:
+          action: validate
+          mod-folder: ${{ fromJSON(github.event.inputs.mod-folders)}}
+
+      - name: Create zip
+        uses: TheBrutalX/factorio-mod-uploader-action@v2
+        with:
+          action: compress
+
+      - name: Upload Mod
+        uses: TheBrutalX/factorio-mod-uploader-action@v2
+        with:
+          action: upload
+          factorio-api-key: ${{ secrets.FACTORIO_API_KEY }}
