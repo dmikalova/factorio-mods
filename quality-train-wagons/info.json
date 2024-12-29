@@ -1,0 +1,11 @@
+{
+  "author": "dmikalova",
+  "contact": "https://github.com/dmikalova/factorio-mods",
+  "dependencies": ["mklv-lib", "quality"],
+  "description": "Quality increases train wagon storage",
+  "factorio_version": "2.0",
+  "homepage": "https://mods.factorio.com/mod/mklv-quality-train-wagons/",
+  "name": "mklv-quality-train-wagons",
+  "title": "MKLV Quality Train Wagons",
+  "version": "0.1.0"
+}

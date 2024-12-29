@@ -1,0 +1,5 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2024.12.11
+  Features:
+    - Implemented cargo and artillery wagon inventory size and fluid wagon capacity increases by quality.

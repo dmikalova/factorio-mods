@@ -17,22 +17,22 @@ local rescan_cargo_wagon = function(surface)
             fast_replace = true,
             force = wagon.force,
             name = wagon.quality.name .. "-" .. name,
-            player = wagon.last_user
+            player = wagon.last_user,
             position = wagon.position,
             quality = wagon.quality,
         }
         wagon.destroy()
 
-        local qaulity_wagon = surface.create_entity(wagon_info)
-        local qaulity_wagon_inventory = qaulity_wagon.get_inventory(defines.inventory.cargo_wagon)
+        local quality_wagon = surface.create_entity(wagon_info)
+        local quality_wagon_inventory = quality_wagon.get_inventory(defines.inventory.cargo_wagon)
         for i = 1, #wagon_filters, 1 do
-            qaulity_wagon_inventory.set_filter(i, wagon_filters[i])
+            quality_wagon_inventory.set_filter(i, wagon_filters[i])
         end
         for _, itemstack in pairs(wagon_contents) do
-            qaulity_wagon_inventory.insert({
+            quality_wagon_inventory.insert({
                 name = itemstack.name,
                 count = itemstack.count,
-                quality = itemstack.quality
+                quality = itemstack.quality,
             })
         end
         ::continue::
@@ -51,7 +51,7 @@ local rescan_fluid_wagon = function(surface)
             fast_replace = true,
             force = wagon.force,
             name = wagon.quality.name .. "-" .. name,
-            player = wagon.last_user
+            player = wagon.last_user,
             position = wagon.position,
             quality = wagon.quality,
         }
