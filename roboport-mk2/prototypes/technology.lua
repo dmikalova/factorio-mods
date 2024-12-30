@@ -3,23 +3,24 @@ local tint = { r = 178 / 255, g = 173 / 255, b = 100 / 255 }
 data:extend({
   {
     type = "technology",
-    name = "electric-energy-distribution-3",
+    name = "roboport-mk2",
     icon_size = 256,
     icon_minimaps = 4,
-    -- icon = "__mklv-substation-mk2__/graphics/technology/electric-energy-distribution-3.png",
-    icons = { { icon = "__base__/graphics/technology/electric-energy-distribution-2.png", tint = tint } },
+    -- icon = "__base__/graphics/technology/construction-robotics.png",
+    icons = { {
+      icon = "__base__/graphics/technology/electric-energy-distribution-2.png",
+      tint = tint
+    } },
 
-    effects =
-    {
+    effects = {
       {
         type = "unlock-recipe",
-        recipe = "substation-mk2"
+        recipe = "roboport-mk2"
       }
     },
-    prerequisites = { "electric-energy-distribution-2" },
-    unit =
-    {
-      count = 10000,
+    prerequisites = { "logistic-system" },
+    unit = {
+      count = 20000,
       ingredients = {
         { "automation-science-pack",      1 },
         { "logistic-science-pack",        1 },
@@ -29,7 +30,7 @@ data:extend({
         { "space-science-pack",           1 },
         { "metallurgic-science-pack",     1 },
         { "electromagnetic-science-pack", 1 },
-        -- { "agricultural-science-pack",    1 },
+        { "agricultural-science-pack",    1 },
         { "cryogenic-science-pack",       1 },
       },
       time = 30

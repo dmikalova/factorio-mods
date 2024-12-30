@@ -4,6 +4,6 @@
   "description": "Library of functions for mod makers to simplify modifying entity quality bonuses",
   "factorio_version": "2.0",
   "name": "mklv-lib",
-  "title": "MKLV Library",
+  "title": "MKLV Mod Library",
   "version": "0.0.1"
 }
