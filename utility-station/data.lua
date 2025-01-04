@@ -11,7 +11,7 @@
 
 
 local mklv_consts = require("__mklv-lib__.consts")
-local mklv_attribute_transfer = require("__mklv-lib__/attribute-transfer")
+local mklv_invisible_entity = require("__mklv-lib__/invisible-entity")
 local name = "mklv-utility-station"
 
 --[[ Overview
@@ -82,18 +82,18 @@ technology.effects = {
     type = "unlock-recipe",
     recipe = name
   },
-  -- {
-  --   type = "unlock-recipe",
-  --   recipe = name .. "-l"
-  -- },
-  -- {
-  --   type = "unlock-recipe",
-  --   recipe = name .. "-r"
-  -- },
-  -- {
-  --   type = "unlock-recipe",
-  --   recipe = name .. "-lr"
-  -- },
+  {
+    type = "unlock-recipe",
+    recipe = name .. "-l"
+  },
+  {
+    type = "unlock-recipe",
+    recipe = name .. "-r"
+  },
+  {
+    type = "unlock-recipe",
+    recipe = name .. "-lr"
+  },
 }
 technology.icons = { {
   icon = "__base__/graphics/technology/logistic-robotics.png",
@@ -124,26 +124,53 @@ technology.unit = {
   time = 30
 }
 
-local entity = mklv_attribute_transfer(entity, "substation")
--- Should only be placeable on fulgora
--- local entity_l = mklv_attribute_transfer(entity, "lightning-collector")
--- local entity_lr = mklv_attribute_transfer(entity_l, "radar")
--- local entity_r = mklv_attribute_transfer(entity, "radar")
+--[[ Hidden entities]] --
+local invisible_lightning_collector = mklv_invisible_entity("lightning-attractor", "lightning-collector")
+local invisible_radar = mklv_invisible_entity("radar", "radar")
+invisible_radar.next_upgrade = nil
+local invisible_substation = mklv_invisible_entity("electric-pole", "substation")
+invisible_substation.next_upgrade = nil
+
+--[[ Combined entities ]] --
+-- control.lua will put the hidden entities under these on build
+entity_l = table.deepcopy(entity)
+entity_l.name = entity_l.name .. "-l"
+
+entity_lr = table.deepcopy(entity_l)
+entity_lr.name = entity_lr.name .. "r"
+
+entity_r = table.deepcopy(entity)
+entity_r.name = entity_r.name .. "-r"
+
+--[[ Combined recipes ]] --
+recipe_l = table.deepcopy(recipe)
+recipe_l.name = recipe_l.name .. "-l"
+table.insert(recipe_l.ingredients, { type = "item", name = "lightning-collector", amount = 1 })
+
+recipe_lr = table.deepcopy(recipe_l)
+recipe_lr.name = recipe_lr.name .. "r"
+table.insert(recipe_lr.ingredients, { type = "item", name = "radar", amount = 1 })
+
+recipe_r = table.deepcopy(recipe)
+recipe_r.name = recipe_r.name .. "-r"
+table.insert(recipe_r.ingredients, { type = "item", name = "radar", amount = 1 })
+
+-- TODO: Should only be placeable on fulgora
 
 --[[ Export ]] --
 data:extend {
-  -- entity_l,
-  -- entity_lr,
-  -- entity_r,
   entity,
-  -- item_l,
-  -- item_lr,
-  -- item_r,
+  entity_l,
+  entity_lr,
+  entity_r,
+  invisible_lightning_collector,
+  invisible_radar,
+  invisible_substation,
   item,
-  -- recipe_l,
-  -- recipe_lr,
-  -- recipe_r,
   recipe,
+  recipe_l,
+  recipe_lr,
+  recipe_r,
   remnants,
   technology,
 }
