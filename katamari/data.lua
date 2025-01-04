@@ -1,0 +1,7 @@
+require("prototypes.entity")
+require("prototypes.font")
+require("prototypes.item")
+require("prototypes.recipe")
+require("prototypes.sound")
+require("prototypes.sprite")
+require("prototypes.style")

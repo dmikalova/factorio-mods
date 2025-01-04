@@ -17,11 +17,11 @@ Adds a Roboport Mk2 that can be chunk aligned in a 64x64 grid:
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["roboport"]["roboport"])
 
-entity.door_animation_down.tint = mklv_consts.mk2_tint
-entity.door_animation_up.tint = mklv_consts.mk2_tint
-entity.base_animation.tint = mklv_consts.mk2_tint
-entity.base_patch.tint = mklv_consts.mk2_tint
-entity.base.layers[1].tint = mklv_consts.mk2_tint
+entity.door_animation_down.tint = mklv_consts.tints.mk2
+entity.door_animation_up.tint = mklv_consts.tints.mk2
+entity.base_animation.tint = mklv_consts.tints.mk2
+entity.base_patch.tint = mklv_consts.tints.mk2
+entity.base.layers[1].tint = mklv_consts.tints.mk2
 entity.charging_offsets = {
   -- circle with 16 points of radius 2
   -- top right
@@ -50,7 +50,7 @@ entity.construction_radius = 69
 entity.corpse = name .. "-remnants"
 entity.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
-  tint = mklv_consts.mk2_tint
+  tint = mklv_consts.tints.mk2
 } }
 entity.logistics_radius = 32
 entity.material_slots_count = 10
@@ -69,7 +69,7 @@ local item = table.deepcopy(data.raw.item["roboport"])
 
 item.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
-  tint = mklv_consts.mk2_tint
+  tint = mklv_consts.tints.mk2
 } }
 item.name = name
 item.order = "c[signal]-m[roboport]"
@@ -97,8 +97,8 @@ recipe.surface_conditions = {
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
 remnants.name = name .. "-remnants"
-remnants.animation[1].tint = mklv_consts.mk2_tint
-remnants.animation[2].tint = mklv_consts.mk2_tint
+remnants.animation[1].tint = mklv_consts.tints.mk2
+remnants.animation[2].tint = mklv_consts.tints.mk2
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["logistic-robotics"])
@@ -110,7 +110,7 @@ technology.effects = { {
 technology.icons = { {
   icon = "__base__/graphics/technology/logistic-robotics.png",
   icon_size = 256,
-  tint = mklv_consts.mk2_tint,
+  tint = mklv_consts.tints.mk2,
 } }
 technology.name = name
 technology.prerequisites = {
