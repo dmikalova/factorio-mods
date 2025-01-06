@@ -1,4 +1,4 @@
-# Welcome to the Modern Art Library!
+# Welcome to the Modern Art Library
 
 **Modern Art Library** lets you make mods to place images and videos around the factory.
 
@@ -31,15 +31,28 @@ In detail:
       {
       ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
       localised_description = "Example description.",
-      localised_name = "Example name",
+      localised_name = "Example Name",
       name = "example-name",
       scale = 1,
       size = { 256, 256 },
      },
     }
+    animations = {
+      {
+        localised_name = "Example Name",
+        name = "example-name",
+        size = {256, 256},
+        framerate = 25,
+        frame_count = 50,
+        files = 10,
+        width_in_frames = 5,
+        height_in_frames = 5,
+        scale = 1,
+      },
+    }
   ```
 
-  - Add your images and animations to the `graphics/images` folder - by default the images follow the naming format of `$NAME.png`. See `.scripts/convert-png.sh` for a script to convert all your images to png.
+  - Add your images and animations to the `graphics/images` folder - by default the images follow the naming format of `$NAME.png` and animations `$NAME/1.png` with each frame counting up from 1. See `.scripts/convert-png.sh` for a script to convert all your images to png and `build-animation.sh` to extract animation frames.
   - Add a 256x256 icon for each image to the `graphics/images` folder - by default the icons follow the naming format of `$NAME-icon.png`.
   - The mod should now be ready. You can add it to your Factorio mod directory to test it out, share it with friends, and upload it to the mod portal.
 
