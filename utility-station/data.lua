@@ -159,7 +159,8 @@ local recipe_r = table.deepcopy(recipe)
 recipe_r.name = recipe_r.name .. "-r"
 table.insert(recipe_r.ingredients, { type = "item", name = "radar", amount = 1 })
 
--- TODO: Should only be placeable on fulgora
+-- TODO: Lighting variant should only be placeable on fulgora
+-- TODO: roboport icon should overlay substation etc
 
 --[[ Export ]] --
 data:extend {
@@ -167,8 +168,8 @@ data:extend {
   entity_l,
   entity_lr,
   entity_r,
-  invisible_lightning_collector,
-  invisible_radar,
+  -- invisible_lightning_collector,
+  -- invisible_radar,
   invisible_substation,
   item,
   recipe,

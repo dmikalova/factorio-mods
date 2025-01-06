@@ -1,10 +1,9 @@
 {
   "author": "dmikalova",
-  "contact": "https://github.com/dmikalova/factorio-mods",
-  "dependencies": ["mklv-lib", "base >= 2.0.0"],
-  "description": "Adds a radar mk2 with larger coverage area. Normal quality is 22, and legendary 32 for chunk coverage.",
+  "dependencies": ["base >= 2.0.0", "mklv-lib"],
+  "description": "Adds Radar MK2 with larger coverage area. Normal quality is 22, and legendary 32 for chunk coverage.",
   "factorio_version": "2.0",
-  "homepage": "https://mods.factorio.com/mod/mklv-substation-mk2/",
+  "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-radar-mk2",
   "title": "MKLV Radar MK2",
   "version": "0.1.0"

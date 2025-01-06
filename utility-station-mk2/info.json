@@ -1,17 +1,16 @@
 {
   "author": "dmikalova",
-  "contact": "https://github.com/dmikalova/factorio-mods",
   "dependencies": [
     "base >= 2.0.0",
     "mklv-lib",
+    "mklv-radar-mk2",
     "mklv-roboport-mk2",
     "mklv-substation-mk2",
-    "mklv-radar-mk2",
     "quality"
   ],
   "description": "Adds utility stations which can combine the properties of roboports, substations, radars, and lightning collectors.",
   "factorio_version": "2.0",
-  "homepage": "https://mods.factorio.com/mod/mklv-utility-station/",
+  "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-utility-station",
   "title": "MKLV Utility Station",
   "version": "0.1.0"
