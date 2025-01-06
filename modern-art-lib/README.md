@@ -6,55 +6,55 @@ Based on [Modern Art](https://mods.factorio.com/mod/ModernArt) which was inspire
 
 ## Creating your own Modern Art Packs
 
-See [Modern Art: Mangine Pack](https://mods.factorio.com/mod/ModernArt) for an example. You can download that mod, edit it to your liking, and upload it to the mod portal.
+See [Modern Art: Mangine Pack](https://mods.factorio.com/mod/mklv-modern-art-mangione) for an example. You can download that mod, edit it to your liking, and upload it to the mod portal.
 
 In detail:
 
 - Create an `info.json` file with your information, and add this lib as a dependency.
 - Create a `data.lua` and import the load function from this lib:
 
-  ```lua
-    local load = require("__mklv-modern-art-lib__.load")
+```lua
+local load = require("__mklv-modern-art-lib__.load")
 
-    load({
-      imagepath = "__mklv-modern-art-mangione__/graphics/images/",
-      images = { ... },
-      animpath = "__mklv-modern-art-mangione__/graphics/animations/",
-      animations = { ... },
-    })
-  ```
+load({
+  imagepath = "__mklv-modern-art-mangione__/graphics/images/",
+  images = { ... },
+  animpath = "__mklv-modern-art-mangione__/graphics/animations/",
+  animations = { ... },
+})
+```
 
 - Fill out the `images` and `animations` sections. See `load.lua` for more options:
 
-  ```lua
-    images = {
-      {
-      ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
-      localised_description = "Example description.",
-      localised_name = "Example Name",
-      name = "example-name",
-      scale = 1,
-      size = { 256, 256 },
-     },
-    }
-    animations = {
-      {
-        localised_name = "Example Name",
-        name = "example-name",
-        size = {256, 256},
-        framerate = 25,
-        frame_count = 50,
-        files = 10,
-        width_in_frames = 5,
-        height_in_frames = 5,
-        scale = 1,
-      },
-    }
-  ```
+```lua
+images = {
+  {
+  ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
+  localised_description = "Example description.",
+  localised_name = "Example Name",
+  name = "example-name",
+  scale = 1,
+  size = { 256, 256 },
+  },
+}
+animations = {
+  {
+    localised_name = "Example Name",
+    name = "example-name",
+    size = {256, 256},
+    framerate = 25,
+    frame_count = 50,
+    files = 10,
+    width_in_frames = 5,
+    height_in_frames = 5,
+    scale = 1,
+  },
+}
+```
 
-  - Add your images and animations to the `graphics/images` folder - by default the images follow the naming format of `$NAME.png` and animations `$NAME/1.png` with each frame counting up from 1. See `.scripts/convert-png.sh` for a script to convert all your images to png and `build-animation.sh` to extract animation frames.
-  - Add a 256x256 icon for each image to the `graphics/images` folder - by default the icons follow the naming format of `$NAME-icon.png`.
-  - The mod should now be ready. You can add it to your Factorio mod directory to test it out, share it with friends, and upload it to the mod portal.
+- Add your images and animations to the `graphics/images` folder - by default the images follow the naming format of `$NAME.png` and animations `$NAME/1.png` with each frame counting up from 1. See `.scripts/convert-png.sh` for a script to convert all your images to png and `build-animation.sh` to extract animation frames.
+- Add a 256x256 icon for each image to the `graphics/images` folder - by default the icons follow the naming format of `$NAME-icon.png`.
+- The mod should now be ready. You can add it to your Factorio mod directory to test it out, share it with friends, and upload it to the mod portal.
 
 ## Limitations
 
