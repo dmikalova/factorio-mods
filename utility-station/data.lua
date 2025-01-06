@@ -29,6 +29,7 @@ entity.door_animation_down.tint = mklv_consts.tints.mk1
 entity.door_animation_up.tint = mklv_consts.tints.mk1
 entity.base_animation.tint = mklv_consts.tints.mk1
 entity.base_patch.tint = mklv_consts.tints.mk1
+entity.next_upgrade           = 
 entity.base.layers[1].tint = mklv_consts.tints.mk1
 entity.corpse = name .. "-remnants"
 entity.icons = { {
@@ -54,6 +55,7 @@ local recipe = table.deepcopy(data.raw.recipe["roboport"])
 recipe.name = name
 recipe.category_id = "biochamber"
 recipe.ingredients = {
+  -- TODO: proper recipe
   { type = "item", name = "roboport",   amount = 1 },
   { type = "item", name = "substation", amount = 1 },
   { type = "item", name = "raw-fish",   amount = 5 },
@@ -125,33 +127,35 @@ technology.unit = {
 }
 
 --[[ Hidden entities]] --
-local invisible_lightning_collector = mklv_invisible_entity("lightning-attractor", "lightning-collector")
-local invisible_radar = mklv_invisible_entity("radar", "radar")
-invisible_radar.next_upgrade = nil
-local invisible_substation = mklv_invisible_entity("electric-pole", "substation")
-invisible_substation.next_upgrade = nil
+local invisible_substation             = mklv_invisible_entity("electric-pole", "substation")
+invisible_substation.connection_points = { {
+  shadow = { copper = { 3.15, -0.6 } },
+  wire = { copper = { 1.35, -1.75 } }
+} }
+invisible_substation.next_upgrade      = "mklv-utility-station-mk2"
 
 --[[ Combined entities ]] --
--- control.lua will put the hidden entities under these on build
-entity_l = table.deepcopy(entity)
+-- control.lua will put hidden entities under on build
+local entity_l = table.deepcopy(entity)
 entity_l.name = entity_l.name .. "-l"
 
-entity_lr = table.deepcopy(entity_l)
+local entity_lr = table.deepcopy(entity_l)
 entity_lr.name = entity_lr.name .. "r"
 
-entity_r = table.deepcopy(entity)
+local entity_r = table.deepcopy(entity)
 entity_r.name = entity_r.name .. "-r"
 
 --[[ Combined recipes ]] --
-recipe_l = table.deepcopy(recipe)
+-- TODO: update recipe results and create items
+local recipe_l = table.deepcopy(recipe)
 recipe_l.name = recipe_l.name .. "-l"
 table.insert(recipe_l.ingredients, { type = "item", name = "lightning-collector", amount = 1 })
 
-recipe_lr = table.deepcopy(recipe_l)
+local recipe_lr = table.deepcopy(recipe_l)
 recipe_lr.name = recipe_lr.name .. "r"
 table.insert(recipe_lr.ingredients, { type = "item", name = "radar", amount = 1 })
 
-recipe_r = table.deepcopy(recipe)
+local recipe_r = table.deepcopy(recipe)
 recipe_r.name = recipe_r.name .. "-r"
 table.insert(recipe_r.ingredients, { type = "item", name = "radar", amount = 1 })
 

@@ -1,0 +1,6 @@
+Size = 1024, 584
+Framerate = 12
+Frame Count = 242
+Files = 9
+Width in Frames = 4
+Height in Frames = 7

@@ -1,0 +1,6 @@
+Size = 408, 408
+Framerate = 20
+Frame Count = 180
+Files = 2
+Width in Frames = 10
+Height in Frames = 10

@@ -2,7 +2,7 @@
   "author": "dmikalova",
   "contact": "https://github.com/dmikalova/factorio-mods",
   "homepage": "https://mods.factorio.com/mod/mklv-nuclear-cells/",
-  "dependencies": ["mklv-lib", "quality"],
+  "dependencies": ["mklv-lib", "quality", "base >= 2.0.0"],
   "description": "Quality increases uranium fuel cell and fusion power cell power output",
   "factorio_version": "2.0",
   "name": "mklv-quality-nuclear-cells",

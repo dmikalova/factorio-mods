@@ -2,6 +2,7 @@
   "author": "dmikalova",
   "contact": "https://github.com/dmikalova/factorio-mods",
   "dependencies": [
+    "base >= 2.0.0",
     "mklv-lib",
     "mklv-roboport-mk2",
     "mklv-substation-mk2",

@@ -1,7 +1,11 @@
 local function invisible_entity(prototype, name)
   entity = table.deepcopy(data.raw[prototype][name])
   entity.collision_box = { { -0, -0 }, { 0, 0 } }
-  -- entity.collision_mask = {}
+  entity.collision_mask = {
+    colliding_with_tiles_only = true,
+    layers = {},
+    not_colliding_with_itself = true
+  }
   entity.flags = {
     -- "hidden",
     "hide-alt-info",
@@ -24,20 +28,6 @@ local function invisible_entity(prototype, name)
     width = 1,
     height = 1,
     direction_count = 1
-  }
-  entity.connection_points = {
-  	{
-  		shadow = {
-  			copper = {0, -0.2},
-  			red = {0, 0},
-  			green = {0, 0}
-  		},
-  		wire = {
-  			copper = {0, -0.2},
-  			red = {0, 0},
-  			green = {0, 0}
-  		}
-  	}
   }
   return entity
 end

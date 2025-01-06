@@ -1,0 +1,6 @@
+Size = 682, 512
+Framerate = 20
+Frame Count = 29
+Files = 1
+Width in Frames = 6
+Height in Frames = 8

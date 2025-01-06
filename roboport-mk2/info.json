@@ -1,7 +1,7 @@
 {
   "author": "dmikalova",
   "contact": "https://github.com/dmikalova/factorio-mods",
-  "dependencies": ["mklv-lib", "quality"],
+  "dependencies": ["mklv-lib", "quality", "base >= 2.0.0"],
   "description": "Adds a roboport mk2 with larger coverage area. Normal quality is 22, and legendary 32 for chunk coverage.",
   "factorio_version": "2.0",
   "homepage": "https://mods.factorio.com/mod/mklv-roboport-mk2/",

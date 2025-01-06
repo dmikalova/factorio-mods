@@ -35,6 +35,10 @@ local function build(event)
     game.players[1].print("substation")
     build_entity(event, "mklv-substation-invisible")
   end
+  game.players[1].print("event " .. event.entity.name)
+  -- game.players[1].print("l " .. entities_l[1])
+  -- game.players[1].print("l " .. entities_l[2])
+
 
   if entities_l[event.entity.name] then
     game.players[1].print("lightning")
@@ -73,20 +77,13 @@ local function destroy(event)
   end
 end
 
--- local filters = {}
-local filters = {
-  {
-    filter = "type",
-    mode = "or",
-    type = "mklv-utility-station",
-  },
-}
--- for entity, _ in pairs(entities) do
---   filters[#filters + 1] = {
---     filter = "type",
---     type = entity
---   }
--- end
+local filters = {};
+for entity, _ in pairs(entities) do
+  filters[#filters + 1] = {
+    filter = "name",
+    name = entity
+  }
+end
 
 script.on_event(defines.events.on_built_entity, build, filters)
 script.on_event(defines.events.on_robot_built_entity, build, filters)

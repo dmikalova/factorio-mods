@@ -1,0 +1,33 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2024-12-28
+
+  Features:
+    - Updated to Factorio 2.0
+    - Art can now be placed on Space Age Space Platforms and other planets
+  Features not added:
+    - Higher quality art does not look any better
+    - Animated art does not freeze on Aquilo
+  Bugs added:
+    - Working-sound no longer works due to beacons no longer always "working"
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2023-11-15
+
+  Features:
+    - Images can now be placed on Space Exploration Space Platforms
+  Bugfixes:
+    - Fixed changelog formatting
+    - Updated info.json again
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2023-11-13
+
+  Bugfixes:
+    - Updated info.json
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2023-11-13
+
+  Features:
+    - Initial release
