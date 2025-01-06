@@ -6,7 +6,7 @@ Based on [Modern Art](https://mods.factorio.com/mod/ModernArt) which was inspire
 
 ## Creating your own Modern Art Packs
 
-See [Modern Art: Mangine Pack](https://mods.factorio.com/mod/mklv-modern-art-mangione) for an example. You can download that mod, edit it to your liking, and upload it to the mod portal.
+See [Modern Art: Mangione Pack](https://mods.factorio.com/mod/mklv-modern-art-mangione) for an example. You can download that mod, edit it to your liking, and upload it to the mod portal.
 
 In detail:
 
