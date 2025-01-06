@@ -8,9 +8,9 @@
   "name": "mklv-modern-art-lib",
   "package": {
     "no_git_tag": true,
+    "source": "https://github.com/dmikalova/factorio-mods",
     "sync_portal_details": true
   },
-  "source": "https://github.com/dmikalova/factorio-mods",
   "tags": "environment",
   "title": "Modern Art Library",
   "version": "2.0.8"
