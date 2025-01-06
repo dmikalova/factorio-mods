@@ -9,7 +9,7 @@
   "name": "mklv-modern-art-lib",
   "package": {
     "no_git_tag": true,
-    "readme": "README.md"
+    "sync_portal_details": true
   },
   "tags": "environment",
   "title": "Modern Art Library",
