@@ -1,13 +1,16 @@
 {
   "author": "dmikalova",
+  "category": "libraries",
   "dependencies": ["base >= 2.0.0"],
   "description": "A library to allow other mods to place images and videos around the factory. Easily add content, customize thumbnails, change recipes, and add sound effects!",
   "factorio_version": "2.0",
   "homepage": "https://github.com/dmikalova/factorio-mods",
+  "license": "MIT",
   "name": "mklv-modern-art-lib",
   "package": {
     "no_git_tag": true
   },
+  "tags": "environment",
   "title": "Modern Art Library",
   "version": "2.0.0"
 }
