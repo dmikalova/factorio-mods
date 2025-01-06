@@ -24,7 +24,7 @@ In detail:
     })
   ```
 
-  - Fill out the `images` and `animations` sections. See `load.lua` for more options:
+- Fill out the `images` and `animations` sections. See `load.lua` for more options:
 
   ```lua
     images = {
