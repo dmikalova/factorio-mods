@@ -8,7 +8,8 @@
   "license": "MIT",
   "name": "mklv-modern-art-lib",
   "package": {
-    "no_git_tag": true
+    "no_git_tag": true,
+    "readme": "README.md"
   },
   "tags": "environment",
   "title": "Modern Art Library",
