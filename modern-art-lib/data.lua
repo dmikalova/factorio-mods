@@ -2,24 +2,24 @@
 data:extend(
   {
     {
-      type = "item-group",
-      name = "images-tabs",
+      icon = "__mklv-modern-art-lib__/item-group-icon.png",
+      icon_size = 256,
       localised_name = "Images",
+      name = "images-tabs",
       order = "zzz",
-      icon = "__mklv-modern-art-lib__/icon.png",
-      icon_size = 256
+      type = "item-group",
     },
     {
-      type = "item-subgroup",
+      group = "images-tabs",
       name = "images-image",
-      group = "images-tabs",
       order = "aa",
+      type = "item-subgroup",
     },
     {
-      type = "item-subgroup",
-      name = "images-animation",
       group = "images-tabs",
+      name = "images-animation",
       order = "ba",
+      type = "item-subgroup",
     },
   }
 )

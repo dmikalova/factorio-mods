@@ -30,6 +30,7 @@ luac.out
 *.so
 *.so.*
 *.dylib
+.DS_Store
 
 # Executables
 *.exe
@@ -38,4 +39,3 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
-

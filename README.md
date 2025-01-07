@@ -2,8 +2,14 @@
 
 Collection of small Factorio mods available on [the mod portal](https://mods.factorio.com/user/dmikalova):
 
-- quality-all: meta-mod to install each mklv quality mod
-- quality-wagons: increases wagon storage size with quality
+## Mods
+
+### Modern Art
+
+An adaptation of the Modern Art mod into a lightweight library and packs of images.
+
+- [Modern Art Library](./modern-art-lib): Library for other mods to add images to the game
+- [Modern Art: Mangione Pack](./modern-art-mangione): A Modern Art pack that adds everyone's favorite Luigi Mangione
 
 ## Contributing
 
