@@ -1,18 +1,18 @@
 local entities = {
-  ["mklv-utility-station"] = true,
-  ["mklv-utility-station-l"] = true,
-  ["mklv-utility-station-lr"] = true,
-  ["mklv-utility-station-r"] = true,
+  ["mklv-utility-station-mk2-l"] = true,
+  ["mklv-utility-station-mk2-r"] = true,
+  ["mklv-utility-station-mk2-rl"] = true,
+  ["mklv-utility-station-mk2"] = true,
 }
 
 local entities_l = {
-  ["mklv-utility-station-l"] = true,
-  ["mklv-utility-station-lr"] = true,
+  ["mklv-utility-station-mk2-l"] = true,
+  ["mklv-utility-station-mk2-rl"] = true,
 }
 
 local entities_r = {
-  ["mklv-utility-station-lr"] = true,
-  ["mklv-utility-station-r"] = true,
+  ["mklv-utility-station-mk2-r"] = true,
+  ["mklv-utility-station-mk2-rl"] = true,
 }
 
 local function build_entity(event, name)
@@ -36,8 +36,6 @@ local function build(event)
     build_entity(event, "mklv-substation-invisible")
   end
   game.players[1].print("event " .. event.entity.name)
-  -- game.players[1].print("l " .. entities_l[1])
-  -- game.players[1].print("l " .. entities_l[2])
 
 
   if entities_l[event.entity.name] then

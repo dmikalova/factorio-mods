@@ -11,14 +11,14 @@
 
 
 local mklv_consts = require("__mklv-lib__.consts")
-local mklv_invisible_entity = require("__mklv-lib__/invisible-entity")
+local mklv_hidden_entity = require("__mklv-lib__/hidden-entity")
 local name = "mklv-utility-station"
 
 --[[ Overview
 
 Adds a Utility Station that combines the functions of a Roboport and Substation, and optionally Lightning Collector or Radar:
 
-- Assembled in a biochamber on vulcanis
+- Assembled in an electromagnetic plant on Nauvis
 
 ]]             --
 
@@ -38,6 +38,15 @@ entity.icons = { {
 } }
 entity.name = name
 
+--[[ Hidden entities]] --
+local hidden_substation             = mklv_hidden_entity("electric-pole", "substation")
+hidden_substation.connection_points = { {
+  shadow = { copper = { 3.15, -0.6 } },
+  wire = { copper = { 1.35, -1.75 } }
+} }
+-- TODO: isn't there an replacement group?
+hidden_substation.next_upgrade      = "mklv-utility-station-mk2"
+
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
 
@@ -53,7 +62,7 @@ item.place_result = name
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
 recipe.name = name
-recipe.category_id = "biochamber"
+recipe.category_id = "electromagnetic"
 recipe.ingredients = {
   -- TODO: proper recipe
   { type = "item", name = "roboport",   amount = 1 },
@@ -67,7 +76,7 @@ recipe.results = { {
   type = "item",
 } }
 recipe.surface_conditions = {
-  mklv_consts.surface_conditions.pressure.vulcanis,
+  mklv_consts.surface_conditions.pressure.nauvis,
 }
 
 --[[ Remnants ]] --
@@ -84,23 +93,12 @@ technology.effects = {
     type = "unlock-recipe",
     recipe = name
   },
-  {
-    type = "unlock-recipe",
-    recipe = name .. "-l"
-  },
-  {
-    type = "unlock-recipe",
-    recipe = name .. "-r"
-  },
-  {
-    type = "unlock-recipe",
-    recipe = name .. "-lr"
-  },
 }
 technology.icons = { {
   icon = "__base__/graphics/technology/logistic-robotics.png",
   icon_size = 256,
   tint = mklv_consts.tints.mk1,
+  -- TODO: overlay with substation icon
 } }
 technology.name = name
 technology.prerequisites = {
@@ -116,66 +114,22 @@ technology.unit = {
     { "chemical-science-pack",        1 },
     { "production-science-pack",      1 },
     { "utility-science-pack",         1 },
-    { "space-science-pack",           1 },
+    -- { "space-science-pack",           1 },
     { "metallurgic-science-pack",     1 },
     { "electromagnetic-science-pack", 1 },
-    { "agricultural-science-pack",    1 },
-    { "cryogenic-science-pack",       1 },
+    -- { "agricultural-science-pack",    1 },
+    -- { "cryogenic-science-pack",       1 },
     -- { "prometheum-science-pack",       1 },
   },
   time = 30
 }
 
---[[ Hidden entities]] --
-local invisible_substation             = mklv_invisible_entity("electric-pole", "substation")
-invisible_substation.connection_points = { {
-  shadow = { copper = { 3.15, -0.6 } },
-  wire = { copper = { 1.35, -1.75 } }
-} }
-invisible_substation.next_upgrade      = "mklv-utility-station-mk2"
-
---[[ Combined entities ]] --
--- control.lua will put hidden entities under on build
-local entity_l = table.deepcopy(entity)
-entity_l.name = entity_l.name .. "-l"
-
-local entity_lr = table.deepcopy(entity_l)
-entity_lr.name = entity_lr.name .. "r"
-
-local entity_r = table.deepcopy(entity)
-entity_r.name = entity_r.name .. "-r"
-
---[[ Combined recipes ]] --
--- TODO: update recipe results and create items
-local recipe_l = table.deepcopy(recipe)
-recipe_l.name = recipe_l.name .. "-l"
-table.insert(recipe_l.ingredients, { type = "item", name = "lightning-collector", amount = 1 })
-
-local recipe_lr = table.deepcopy(recipe_l)
-recipe_lr.name = recipe_lr.name .. "r"
-table.insert(recipe_lr.ingredients, { type = "item", name = "radar", amount = 1 })
-
-local recipe_r = table.deepcopy(recipe)
-recipe_r.name = recipe_r.name .. "-r"
-table.insert(recipe_r.ingredients, { type = "item", name = "radar", amount = 1 })
-
--- TODO: Lighting variant should only be placeable on fulgora
--- TODO: roboport icon should overlay substation etc
-
 --[[ Export ]] --
 data:extend {
   entity,
-  entity_l,
-  entity_lr,
-  entity_r,
-  -- invisible_lightning_collector,
-  -- invisible_radar,
-  invisible_substation,
+  hidden_substation,
   item,
   recipe,
-  recipe_l,
-  recipe_lr,
-  recipe_r,
   remnants,
   technology,
 }

@@ -6,12 +6,13 @@
     "mklv-radar-mk2",
     "mklv-roboport-mk2",
     "mklv-substation-mk2",
+    "mklv-utility-station",
     "quality"
   ],
-  "description": "Adds utility stations which can combine the properties of roboports, substations, radars, and lightning collectors.",
+  "description": "Adds Utility Station MK2s which can combine the properties of roboports and substations; and optionally radars or lightning collectors.",
   "factorio_version": "2.0",
   "homepage": "https://github.com/dmikalova/factorio-mods",
-  "name": "mklv-utility-station",
-  "title": "MKLV Utility Station",
+  "name": "mklv-utility-station-mk2",
+  "title": "MKLV Utility Station MK2",
   "version": "0.1.0"
 }

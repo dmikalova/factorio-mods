@@ -3,8 +3,6 @@
   "dependencies": [
     "base >= 2.0.0",
     "mklv-lib",
-    "mklv-roboport-mk2",
-    "mklv-substation-mk2",
     "quality"
   ],
   "description": "Adds Utility Station which combine the properties of roboports and substations.",

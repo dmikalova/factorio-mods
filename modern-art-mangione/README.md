@@ -4,4 +4,4 @@ The **Mangione Modern Art** pack lets you place images of your favorite Luigi Ma
 
 Uses [Modern Art lib](https://mods.factorio.com/mod/mklv-modern-art-lib) to generate entities.
 
-![Mangione love](graphics/gallery/example.png)
+![example](graphics/gallery/example.png)

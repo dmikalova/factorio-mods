@@ -11,53 +11,98 @@
 
 
 local mklv_consts = require("__mklv-lib__.consts")
-local mklv_invisible_entity = require("__mklv-lib__/invisible-entity")
-local name = "mklv-utility-station"
+local mklv_hidden_entity = require("__mklv-lib__/hidden-entity")
+local name = "mklv-utility-station-mk2"
+local name_l = name .. "-l"
+local name_r = name .. "-r"
+local name_rl = name .. "-rl"
 
 --[[ Overview
 
-Adds a Utility Station that combines the functions of a Roboport and Substation, and optionally Lightning Collector or Radar:
+Adds Utility Station MK2 that combines the functions of Roboports and Substations; and optionally Lightning Collector or Radar:
 
 - Assembled in a biochamber on vulcanis
+- -l, -r, and -rl variants with Lightning Collector, Radar, and both
 
 ]]             --
 
 --[[ Entity ]] --
-local entity = table.deepcopy(data.raw["roboport"]["roboport"])
+local entity = table.deepcopy(data.raw["roboport"]["mklv-utility-station"])
 
-entity.door_animation_down.tint = mklv_consts.tints.mk1
-entity.door_animation_up.tint = mklv_consts.tints.mk1
-entity.base_animation.tint = mklv_consts.tints.mk1
-entity.base_patch.tint = mklv_consts.tints.mk1
-entity.base.layers[1].tint = mklv_consts.tints.mk1
+entity.door_animation_down.tint = mklv_consts.tints.mk2
+entity.door_animation_up.tint = mklv_consts.tints.mk2
+entity.base_animation.tint = mklv_consts.tints.mk2
+entity.base_patch.tint = mklv_consts.tints.mk2
+entity.base.layers[1].tint = mklv_consts.tints.mk2
 entity.corpse = name .. "-remnants"
 entity.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
-  tint = mklv_consts.tints.mk1
+  tint = mklv_consts.tints.mk2
 } }
 entity.name = name
 
+--[[ Hidden entities]] --
+local hidden_substation             = mklv_hidden_entity("electric-pole", "mklv-substation-mk2")
+hidden_substation.connection_points = { {
+  shadow = { copper = { 3.15, -0.6 } },
+  wire = { copper = { 1.35, -1.75 } }
+} }
+-- TODO: isn't there an replacement group?
+hidden_substation.next_upgrade      = "mklv-utility-station-mk2"
+
+local hidden_radar                  = mklv_hidden_entity("electric-pole", "mklv-radar-mk2")
+hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
+
+local hidden_lightning_collector    = mklv_hidden_entity("lightning-attractor", "lightning-collector")
+hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
+
 --[[ Item ]] --
-local item = table.deepcopy(data.raw.item["roboport"])
+local item = table.deepcopy(data.raw.item["mklv-utility-station"])
 
 item.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
-  tint = mklv_consts.tints.mk1
+  tint = mklv_consts.tints.mk2
 } }
 item.name = name
 item.order = "c[signal]-m[roboport]"
 item.place_result = name
 
+--[[ Combined items ]] --
+local item_l = table.deepcopy(item)
+item_l.icons = { {
+  icon = "__base__/graphics/icons/roboport.png",
+  tint = mklv_consts.tints.mk2
+} }
+item_l.name = name_l
+item_l.place_result = name_l
+
+local item_r = table.deepcopy(item)
+item_r.icons = { {
+  icon = "__base__/graphics/icons/roboport.png",
+  tint = mklv_consts.tints.mk2
+} }
+item_r.name = name_r
+item_r.place_result = name_r
+
+local item_rl = table.deepcopy(item)
+item_rl.icons = { {
+  icon = "__base__/graphics/icons/roboport.png",
+  tint = mklv_consts.tints.mk2
+} }
+item_rl.name = name_rl
+item_rl.place_result = name_rl
+
 --[[ Recipe ]] --
-local recipe = table.deepcopy(data.raw.recipe["roboport"])
+local recipe = table.deepcopy(data.raw.recipe["mklv-utility-station"])
 
 recipe.name = name
 recipe.category_id = "biochamber"
 recipe.ingredients = {
-  { type = "item", name = "roboport",   amount = 1 },
-  { type = "item", name = "substation", amount = 1 },
-  { type = "item", name = "raw-fish",   amount = 5 },
-  { type = "item", name = "wood",       amount = 5 },
+  -- TODO: proper recipe
+  { type = "item", name = "mklv-roboport-mk2",   amount = 1 },
+  { type = "item", name = "mklv-substation-mk2", amount = 1 },
+  { type = "item", name = "raw-fish",            amount = 5 },
+  { type = "item", name = "wood",                amount = 5 },
 }
 recipe.results = { {
   amount = 1,
@@ -68,11 +113,30 @@ recipe.surface_conditions = {
   mklv_consts.surface_conditions.pressure.vulcanis,
 }
 
+--[[ Combined recipes ]] --
+-- TODO: update recipe results and create items
+local recipe_l = table.deepcopy(recipe)
+recipe_l.name = name_l
+recipe_l.results[1].name = name_l
+table.insert(recipe_l.ingredients, { type = "item", name = "lightning-collector", amount = 1 })
+
+local recipe_r = table.deepcopy(recipe)
+recipe_r.name = name_r
+table.insert(recipe_r.ingredients, { type = "item", name = "mklv-radar-mk2", amount = 1 })
+
+local recipe_rl = table.deepcopy(recipe_l)
+recipe_rl.name = name_rl
+table.insert(recipe_rl.ingredients, { type = "item", name = "mklv-radar-mk2", amount = 1 })
+
+-- TODO: Lightning variant should only be placeable on fulgora
+-- TODO: roboport icon should overlay substation etc
+
+
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
 remnants.name = name .. "-remnants"
-remnants.animation[1].tint = mklv_consts.tints.mk1
-remnants.animation[2].tint = mklv_consts.tints.mk1
+remnants.animation[1].tint = mklv_consts.tints.mk2
+remnants.animation[2].tint = mklv_consts.tints.mk2
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["logistic-robotics"])
@@ -84,29 +148,31 @@ technology.effects = {
   },
   {
     type = "unlock-recipe",
-    recipe = name .. "-l"
+    recipe = name_l
   },
   {
     type = "unlock-recipe",
-    recipe = name .. "-r"
+    recipe = name_r
   },
   {
     type = "unlock-recipe",
-    recipe = name .. "-lr"
+    recipe = name_rl
   },
 }
 technology.icons = { {
   icon = "__base__/graphics/technology/logistic-robotics.png",
   icon_size = 256,
-  tint = mklv_consts.tints.mk1,
+  tint = mklv_consts.tints.mk2,
+  -- TODO: overlay with substation lightning collector and radar
 } }
 technology.name = name
 technology.prerequisites = {
-  "logistic-system",
   "electric-energy-distribution-2",
+  "logistic-system",
+  "mklv-utility-station",
 }
 technology.unit = {
-  count = 15000,
+  count = 100000,
   ingredients = {
     { "automation-science-pack",      1 },
     { "logistic-science-pack",        1 },
@@ -124,61 +190,20 @@ technology.unit = {
   time = 30
 }
 
---[[ Hidden entities]] --
--- TODO: heat pipes
-local invisible_lightning_collector    = mklv_invisible_entity("lightning-attractor", "lightning-collector")
-local invisible_radar                  = mklv_invi
-sible_entity("radar", "radar")
-invisible_radar.next_upgrade           = nil
-local invisible_substation             = mklv_invisible_entity("electric-pole", "substation")
-invisible_substation.next_upgrade      = nil
-invisible_substation.connection_points = { {
-  shadow = { copper = { 3.15, -0.6 } },
-  wire = { copper = { 1.35, -1.75 } }
-} }
-
-
---[[ Combined entities ]] --
--- control.lua will put hidden entities under on build
-local entity_l = table.deepcopy(entity)
-entity_l.name = entity_l.name .. "-l"
-
-local entity_lr = table.deepcopy(entity_l)
-entity_lr.name = entity_lr.name .. "r"
-
-local entity_r = table.deepcopy(entity)
-entity_r.name = entity_r.name .. "-r"
-
---[[ Combined recipes ]] --
--- TODO: update recipe results and create items
-local recipe_l = table.deepcopy(recipe)
-recipe_l.name = recipe_l.name .. "-l"
-table.insert(recipe_l.ingredients, { type = "item", name = "lightning-collector", amount = 1 })
-
-local recipe_lr = table.deepcopy(recipe_l)
-recipe_lr.name = recipe_lr.name .. "r"
-table.insert(recipe_lr.ingredients, { type = "item", name = "radar", amount = 1 })
-
-local recipe_r = table.deepcopy(recipe)
-recipe_r.name = recipe_r.name .. "-r"
-table.insert(recipe_r.ingredients, { type = "item", name = "radar", amount = 1 })
-
--- TODO: Should only be placeable on fulgora
-
 --[[ Export ]] --
 data:extend {
   entity,
-  entity_l,
-  entity_lr,
-  entity_r,
-  invisible_lightning_collector,
-  invisible_radar,
-  invisible_substation,
+  hidden_lightning_collector,
+  hidden_radar,
+  hidden_substation,
+  item_l,
+  item_r,
+  item_rl,
   item,
-  recipe,
   recipe_l,
-  recipe_lr,
   recipe_r,
+  recipe_rl,
+  recipe,
   remnants,
   technology,
 }

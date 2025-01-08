@@ -1,6 +1,6 @@
 # Factorio Mods
 
-Collection of small Factorio mods available on [the mod portal](https://mods.factorio.com/user/dmikalova):
+Collection of small Factorio mods available on [the Factorio mod portal](https://mods.factorio.com/user/dmikalova):
 
 ## Mods
 
@@ -13,12 +13,13 @@ An adaptation of the Modern Art mod into a lightweight library and packs of imag
 
 ## Contributing
 
-Bug reports and pull requests are welcome.
+Bug reports, suggestions, and pull requests are welcome.
 
-## Resources
+## Modding references
 
+Some links that help me with modding:
+
+- [Wiki tutorial](https://wiki.factorio.com/Tutorial:Modding_tutorial)
+- [FMTK: Factorio modding toolkit](https://github.com/justarandomgeek/vscode-factoriomod-debug/blob/current/doc/workspace.md)
 - [Github Actions](https://github.com/TheBrutalX/Factorio-mod-uploader-action/)
-- [Factorio raw data](https://wiki.factorio.com/Data.raw)
-
-tinting https://forums.factorio.com/viewtopic.php?t=60356
-debugger https://discord.com/channels/139677590393716737/1217401074877599745/1323028268978536561
+- [Factorio raw data dump](https://wiki.factorio.com/Data.raw)

@@ -1,0 +1,16 @@
+{
+  "author": "dmikalova",
+  "dependencies": ["base >= 2.0.0", "mklv-modern-art-lib"],
+  "description": "A Modern Art pack featuring Steven Universe.",
+  "factorio_version": "2.0",
+  "homepage": "https://github.com/dmikalova/factorio-mods",
+  "license": "apache2",
+  "name": "mklv-modern-art-steven-universe",
+  "package": {
+    "ignore": [],
+    "no_git_tag": true,
+    "sync_portal_details": true
+  },
+  "title": "Modern Art: Steven Universe",
+  "version": "1.0.0"
+}

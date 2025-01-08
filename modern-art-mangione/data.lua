@@ -1,8 +1,8 @@
 local load = require("__mklv-modern-art-lib__.load")
 
 load({
-	imagepath = "__mklv-modern-art-mangione__/graphics/images/",
-	animpath = "__mklv-modern-art-mangione__/graphics/animations/",
+	imagepath = "__mklv-modern-art-potted-plants__/graphics/images/",
+	animpath = "__mklv-modern-art-potted-plants__/graphics/animations/",
 	images = {
 		{
 			ingredients = { { type = "item", name = "stone", amount = 1 } },
@@ -19,6 +19,14 @@ load({
 			name = "che",
 			scale = 1,
 			size = { 291, 398 },
+		},
+		{
+			ingredients = { { type = "item", name = "electronic-circuit", amount = 1 } },
+			localised_description = "A classic hero.",
+			localised_name = "It's a me!",
+			name = "clay",
+			scale = 1,
+			size = { 900, 1400 },
 		},
 		{
 			ingredients = { { type = "item", name = "holmium-plate", amount = 1 } },
@@ -71,10 +79,18 @@ load({
 		{
 			ingredients = { { type = "item", name = "superconductor", amount = 1 } },
 			localised_description = "",
-			localised_name = "MgDonalds Smile",
+			localised_name = "McDonalds Smile",
 			name = "mcd",
 			scale = 1,
 			size = { 261, 393 },
+		},
+		{
+			ingredients = { { type = "item", name = "electronic-circuit", amount = 1 } },
+			localised_description = "Just look at him jump!",
+			localised_name = "Jump",
+			name = "jump",
+			scale = 1,
+			size = { 900, 1660 },
 		},
 		{
 			ingredients = { { type = "item", name = "ice", amount = 1 } },
@@ -109,6 +125,14 @@ load({
 			size = { 500, 704 },
 		},
 		{
+			ingredients = { { type = "item", name = "rocket-fuel", amount = 1 } },
+			localised_description = "He wiped the competition.",
+			localised_name = "Shootin' shells",
+			name = "kart",
+			scale = 1,
+			size = { 900, 900 },
+		},
+		{
 			ingredients = { { type = "item", name = "solid-fuel", amount = 1 } },
 			localised_description = "",
 			localised_name = "Luigi Mangione wearing a red sweater",
@@ -123,6 +147,14 @@ load({
 			name = "saint",
 			scale = 1,
 			size = { 478, 783 },
+		},
+		{
+			ingredients = { { type = "item", name = "advanced-circuit", amount = 1 } },
+			localised_description = "Known for his courage and selflessness.",
+			localised_name = "Flying Luigi",
+			name = "yoshi",
+			scale = 1,
+			size = { 900, 980 },
 		},
 	},
 	animations = {},

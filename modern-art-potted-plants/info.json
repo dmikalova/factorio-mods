@@ -1,0 +1,16 @@
+{
+  "author": "dmikalova",
+  "dependencies": ["base >= 2.0.0", "mklv-modern-art-lib"],
+  "description": "A Modern Art pack featuring potted plants.",
+  "factorio_version": "2.0",
+  "homepage": "https://github.com/dmikalova/factorio-mods",
+  "license": "apache2",
+  "name": "mklv-modern-art-potted-plants",
+  "package": {
+    "ignore": ["./graphhics/originals/*"],
+    "no_git_tag": true,
+    "sync_portal_details": true
+  },
+  "title": "Modern Art: Potted Plants",
+  "version": "1.0.0"
+}

@@ -1,7 +1,7 @@
 {
   "author": "dmikalova",
   "dependencies": ["base >= 2.0.0"],
-  "description": "Library of reusable functions for my other mods",
+  "description": "Library of reusable functions for other mods",
   "factorio_version": "2.0",
   "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-lib",
