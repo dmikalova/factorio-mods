@@ -44,25 +44,25 @@ entity.name = name
 --[[ Variant entities]] --
 local entity_l = table.deepcopy(entity)
 entity_l.name = name_l
+entity_l.surface_conditions = mklv_consts.surface_conditions.magnetic_field.fulgora
 local entity_r = table.deepcopy(entity)
 entity_r.name = name_r
 local entity_rl = table.deepcopy(entity_r)
 entity_rl.name = name_rl
 
 
-local hidden_substation             = mklv_hidden_entity("electric-pole", "mklv-substation-mk2")
-hidden_substation.connection_points = { {
+local hidden_substation                           = mklv_hidden_entity("electric-pole", "mklv-substation-mk2")
+hidden_substation.connection_points               = { {
   shadow = { copper = { 3.15, -0.6 } },
   wire = { copper = { 1.35, -1.75 } }
 } }
--- TODO: isn't there an replacement group?
--- hidden_substation.next_upgrade      = "mklv-utility-station-mk2"
+hidden_substation.fast_replaceable_group          = entity.fast_replaceable_group
 
-local hidden_radar                  = mklv_hidden_entity("radar", "mklv-radar-mk2")
--- hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
+local hidden_radar                                = mklv_hidden_entity("radar", "mklv-radar-mk2")
+hidden_radar.fast_replaceable_group               = entity.fast_replaceable_group
 
-local hidden_lightning_collector    = mklv_hidden_entity("lightning-attractor", "lightning-collector")
--- hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
+local hidden_lightning_collector                  = mklv_hidden_entity("lightning-attractor", "lightning-collector")
+hidden_lightning_collector.fast_replaceable_group = entity.fast_replaceable_group
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["mklv-utility-station"])
@@ -72,7 +72,7 @@ item.icons = { {
   tint = mklv_consts.tints.mk2
 } }
 item.name = name
-item.order = "c[signal]-m[roboport]"
+item.order = "c[signal]-a[roboport]amu2"
 item.place_result = name
 
 --[[ Combined items ]] --
@@ -104,13 +104,21 @@ item_rl.place_result = name_rl
 local recipe = table.deepcopy(data.raw.recipe["mklv-utility-station"])
 
 recipe.name = name
-recipe.category_id = "biochamber"
+recipe.category_id = "centrifuge"
 recipe.ingredients = {
-  -- TODO: proper recipe
-  { type = "item", name = "mklv-roboport-mk2",   amount = 1 },
-  { type = "item", name = "mklv-substation-mk2", amount = 1 },
-  { type = "item", name = "raw-fish",            amount = 5 },
-  { type = "item", name = "wood",                amount = 5 },
+  { type = "item",  name = "mklv-utility-station", amount = 1 },
+  { type = "item",  name = "mklv-roboport-mk2",    amount = 1 },
+  { type = "item",  name = "mklv-substation-mk2",  amount = 1 },
+  { type = "item",  name = "electric-engine-unit", amount = 10 },
+  { type = "item",  name = "uranium-fuel-cell",    amount = 5 },
+  { type = "item",  name = "bioflux",              amount = 10 },
+  { type = "item",  name = "carbon-fiber",         amount = 5 },
+  { type = "item",  name = "calcite",              amount = 10 },
+  { type = "item",  name = "tungsten-carbide",     amount = 5 },
+  { type = "item",  name = "holmium-plate",        amount = 10 },
+  { type = "item",  name = "supercapacitor",       amount = 5 },
+  { type = "item",  name = "fusion-power-cell",    amount = 10 },
+  { type = "fluid", name = "fluoroketone-hot",     amount = 5 },
 }
 recipe.results = { {
   amount = 1,
@@ -118,7 +126,7 @@ recipe.results = { {
   type = "item",
 } }
 recipe.surface_conditions = {
-  mklv_consts.surface_conditions.pressure.vulcanis,
+  mklv_consts.surface_conditions.pressure.space,
 }
 
 --[[ Combined recipes ]] --
@@ -126,15 +134,15 @@ recipe.surface_conditions = {
 local recipe_l = table.deepcopy(recipe)
 recipe_l.name = name_l
 recipe_l.results[1].name = name_l
-table.insert(recipe_l.ingredients, { type = "item", name = "lightning-collector", amount = 1 })
+table.insert(recipe_l.ingredients, 4, { type = "item", name = "lightning-collector", amount = 1 })
 
 local recipe_r = table.deepcopy(recipe)
 recipe_r.name = name_r
-table.insert(recipe_r.ingredients, { type = "item", name = "mklv-radar-mk2", amount = 1 })
+table.insert(recipe_r.ingredients, 4, { type = "item", name = "mklv-radar-mk2", amount = 1 })
 
 local recipe_rl = table.deepcopy(recipe_l)
 recipe_rl.name = name_rl
-table.insert(recipe_rl.ingredients, { type = "item", name = "mklv-radar-mk2", amount = 1 })
+table.insert(recipe_rl.ingredients, 4, { type = "item", name = "mklv-radar-mk2", amount = 1 })
 
 -- TODO: Lightning variant should only be placeable on fulgora
 -- TODO: roboport icon should overlay substation etc

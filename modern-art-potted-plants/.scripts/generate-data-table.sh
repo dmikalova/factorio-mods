@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm ../template
+rm ../data-table
 SEED0=tree-seed
 SEED1=jellynut-seed
 SEED2=yumako-seed

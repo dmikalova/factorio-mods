@@ -3,6 +3,7 @@ local load = require("__mklv-modern-art-lib__.load")
 load({
 	imagepath = "__mklv-modern-art-mangione__/graphics/images/",
 	animpath = "__mklv-modern-art-mangione__/graphics/animations/",
+	mod_name = "mangione",
 	images = {
 		{
 			ingredients = { { type = "item", name = "stone", amount = 1 } },

@@ -36,7 +36,7 @@ item.icons = { {
   tint = mklv_consts.tints.mk2
 } }
 item.name = name
-item.order = "z-d[radar]-m[radar]"
+item.order = "d[radar]-m[radar]"
 item.place_result = name
 
 --[[ Recipe ]] --

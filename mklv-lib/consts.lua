@@ -38,7 +38,29 @@ return {
     },
   },
   surface_conditions = {
+    gravity = {
+      any_planet = {
+        property = "gravity",
+        min = 1,
+      },
+      space = {
+        property = "gravity",
+        min = 0,
+        max = 0,
+      }
+    },
+    magnetic_field = {
+      fulgora = {
+        property = "magnetic-field",
+        max = 99,
+        min = 99,
+      }
+    },
     pressure = {
+      any_plant = {
+        property = "pressure",
+        min = 1,
+      },
       aquilo = {
         property = "pressure",
         min = 300,

@@ -23,3 +23,8 @@ Some links that help me with modding:
 - [FMTK: Factorio modding toolkit](https://github.com/justarandomgeek/vscode-factoriomod-debug/blob/current/doc/workspace.md)
 - [Github Actions](https://github.com/TheBrutalX/Factorio-mod-uploader-action/)
 - [Factorio raw data dump](https://wiki.factorio.com/Data.raw)
+
+Shortcuts:
+
+- `Ctrl+Shift+F`: Open prototype definition for entity being hovered over
+- `Ctrl+Shift+E`: Open a list of all prototypes

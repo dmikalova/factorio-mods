@@ -1,4 +1,23 @@
 local function load(config)
+  -- Create image subgroup
+  data:extend(
+    {
+      {
+        group = "images-tabs",
+        name = "images-image-" .. config.mod_name,
+        order = "aa" .. config.mod_name,
+        type = "item-subgroup",
+      },
+      {
+        group = "images-tabs",
+        name = "images-animation-" .. config.mod_name,
+        order = "ba" .. config.mod_name,
+        type = "item-subgroup",
+      },
+    }
+  )
+
+
   -- create images
   -- I'm still mad I have two whole sets of item, entity, recipe instead of just one. Script is twice as long as it should be. Can't figure out how to combine them without redesigning config
   for key, content in pairs(config.images) do
@@ -19,11 +38,11 @@ local function load(config)
 
     local item =
     {
-      stack_size = 1,
+      stack_size = 10,
       name = "ma-" .. content.name,
       localised_name = content.localised_name,
       place_result = "ma-" .. content.name,
-      subgroup = "images-image",
+      subgroup = "images-image-" .. config.mod_name,
       type = "item",
       --- User optional variables
       icon = config.imagepath .. content.name .. "-icon.png",

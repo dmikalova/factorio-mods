@@ -72,7 +72,7 @@ item.icons = { {
   tint = mklv_consts.tints.mk2
 } }
 item.name = name
-item.order = "c[signal]-m[roboport]"
+item.order = "c[signal]-a[roboport]am2"
 item.place_result = name
 
 --[[ Recipe ]] --

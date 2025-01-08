@@ -21,6 +21,7 @@ local function hidden_entity(prototype, name)
   }
   entity.max_health = 2147483648
   entity.name = "mklv-" .. entity.name .. "-hidden"
+  entity.next_upgrade = nil
   entity.order = "z"
   entity.selection_box = nil
   entity.pictures = {
