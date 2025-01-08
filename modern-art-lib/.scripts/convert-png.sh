@@ -10,6 +10,7 @@ done
 # Trim borders and optimize PNGs
 for file in ./*.png; do
   if [ -f "$file" ]; then
+    magic "$file" -bordercolor none -border 10 "$file"
     magick "$file" -fuzz 25% -trim "$file"
     optipng -clobber "$file"
   fi

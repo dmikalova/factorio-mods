@@ -23,20 +23,24 @@ Adds a Utility Station that combines the functions of a Roboport and Substation,
 ]]             --
 
 --[[ Entity ]] --
-local entity = table.deepcopy(data.raw["roboport"]["roboport"])
+local entity                    = table.deepcopy(data.raw["roboport"]["roboport"])
 
 entity.door_animation_down.tint = mklv_consts.tints.mk1
-entity.door_animation_up.tint = mklv_consts.tints.mk1
-entity.base_animation.tint = mklv_consts.tints.mk1
-entity.base_patch.tint = mklv_consts.tints.mk1
-entity.next_upgrade           = 
-entity.base.layers[1].tint = mklv_consts.tints.mk1
-entity.corpse = name .. "-remnants"
-entity.icons = { {
+entity.door_animation_up.tint   = mklv_consts.tints.mk1
+entity.base_animation.tint      = mklv_consts.tints.mk1
+entity.base_patch.tint          = mklv_consts.tints.mk1
+entity.base.layers[1].tint      = mklv_consts.tints.mk1
+entity.corpse                   = name .. "-remnants"
+entity.icons                    = { {
   icon = "__base__/graphics/icons/roboport.png",
   tint = mklv_consts.tints.mk1
 } }
-entity.name = name
+entity.name                     = name
+
+-- if mods["mklv-utility-station-mk2"] then
+--   entity.next_upgrade = "mklv-utility-station-mk2"
+-- end
+
 
 --[[ Hidden entities]] --
 local hidden_substation             = mklv_hidden_entity("electric-pole", "substation")
@@ -44,8 +48,9 @@ hidden_substation.connection_points = { {
   shadow = { copper = { 3.15, -0.6 } },
   wire = { copper = { 1.35, -1.75 } }
 } }
+hidden_substation.next_upgrade      = nil
 -- TODO: isn't there an replacement group?
-hidden_substation.next_upgrade      = "mklv-utility-station-mk2"
+-- hidden_substation.next_upgrade      = "mklv-utility-station-mk2"
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])

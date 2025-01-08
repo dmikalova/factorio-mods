@@ -15,7 +15,7 @@ local function hidden_entity(prototype, name)
     "not-flammable",
     "not-on-map",
     "not-selectable-in-game",
-    "not-upgradable",
+    -- "not-upgradable",
     "placeable-off-grid",
     "placeable-player",
   }
@@ -24,7 +24,7 @@ local function hidden_entity(prototype, name)
   entity.order = "z"
   entity.selection_box = nil
   entity.pictures = {
-    filename = "__mklv-lib__/graphics/hidden_entity.png",
+    filename = "__mklv-lib__/graphics/hidden-entity.png",
     width = 1,
     height = 1,
     direction_count = 1

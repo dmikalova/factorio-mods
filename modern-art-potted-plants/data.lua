@@ -1,8 +1,8 @@
 local load = require("__mklv-modern-art-lib__.load")
 
 load({
-	imagepath = "__mklv-modern-art-mangione__/graphics/images/",
-	animpath = "__mklv-modern-art-mangione__/graphics/animations/",
+	imagepath = "__mklv-modern-art-potted-plants__/graphics/images/",
+	animpath = "__mklv-modern-art-potted-plants__/graphics/animations/",
 	images = {
 		{
 			ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
@@ -292,14 +292,14 @@ load({
 			scale = 1,
 			size = { 3272, 3549 },
 		},
-		{
-			ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
-			localised_description = "",
-			localised_name = "Plant 36",
-			name = "potted-plant-36",
-			scale = 1,
-			size = { 3455, 5008 },
-		},
+		-- {
+		-- 	ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+		-- 	localised_description = "",
+		-- 	localised_name = "Plant 36",
+		-- 	name = "potted-plant-36",
+		-- 	scale = 1,
+		-- 	size = { 3455, 5008 },
+		-- },
 		{
 			ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
 			localised_description = "",
@@ -676,14 +676,14 @@ load({
 			scale = 1,
 			size = { 2646, 3432 },
 		},
-		{
-			ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
-			localised_description = "",
-			localised_name = "Plant 84",
-			name = "potted-plant-84",
-			scale = 1,
-			size = { 4996, 5116 },
-		},
+		-- {
+		-- 	ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+		-- 	localised_description = "",
+		-- 	localised_name = "Plant 84",
+		-- 	name = "potted-plant-84",
+		-- 	scale = 1,
+		-- 	size = { 4996, 5116 },
+		-- },
 		{
 			ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
 			localised_description = "",

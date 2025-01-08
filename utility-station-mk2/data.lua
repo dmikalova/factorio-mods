@@ -41,20 +41,28 @@ entity.icons = { {
 } }
 entity.name = name
 
---[[ Hidden entities]] --
+--[[ Variant entities]] --
+local entity_l = table.deepcopy(entity)
+entity_l.name = name_l
+local entity_r = table.deepcopy(entity)
+entity_r.name = name_r
+local entity_rl = table.deepcopy(entity_r)
+entity_rl.name = name_rl
+
+
 local hidden_substation             = mklv_hidden_entity("electric-pole", "mklv-substation-mk2")
 hidden_substation.connection_points = { {
   shadow = { copper = { 3.15, -0.6 } },
   wire = { copper = { 1.35, -1.75 } }
 } }
 -- TODO: isn't there an replacement group?
-hidden_substation.next_upgrade      = "mklv-utility-station-mk2"
+-- hidden_substation.next_upgrade      = "mklv-utility-station-mk2"
 
-local hidden_radar                  = mklv_hidden_entity("electric-pole", "mklv-radar-mk2")
-hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
+local hidden_radar                  = mklv_hidden_entity("radar", "mklv-radar-mk2")
+-- hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
 
 local hidden_lightning_collector    = mklv_hidden_entity("lightning-attractor", "lightning-collector")
-hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
+-- hidden_radar.next_upgrade           = "mklv-utility-station-mk2"
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["mklv-utility-station"])
@@ -192,6 +200,9 @@ technology.unit = {
 
 --[[ Export ]] --
 data:extend {
+  entity_l,
+  entity_r,
+  entity_rl,
   entity,
   hidden_lightning_collector,
   hidden_radar,

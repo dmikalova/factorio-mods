@@ -1,8 +1,8 @@
 local load = require("__mklv-modern-art-lib__.load")
 
 load({
-	imagepath = "__mklv-modern-art-potted-plants__/graphics/images/",
-	animpath = "__mklv-modern-art-potted-plants__/graphics/animations/",
+	imagepath = "__mklv-modern-art-mangione__/graphics/images/",
+	animpath = "__mklv-modern-art-mangione__/graphics/animations/",
 	images = {
 		{
 			ingredients = { { type = "item", name = "stone", amount = 1 } },
@@ -128,7 +128,7 @@ load({
 			ingredients = { { type = "item", name = "rocket-fuel", amount = 1 } },
 			localised_description = "He wiped the competition.",
 			localised_name = "Shootin' shells",
-			name = "kart",
+			name = "red-shell",
 			scale = 1,
 			size = { 900, 900 },
 		},
