@@ -29,23 +29,23 @@ local function build_entity(event, name)
 end
 
 local function build(event)
-  game.players[1].print("build")
+  -- game.players[1].print("build")
 
   if entities[event.entity.name] then
-    game.players[1].print("substation")
-    build_entity(event, "mklv-substation-hidden")
+    -- game.players[1].print("substation")
+    build_entity(event, "mklv-substation-mk2-hidden")
   end
-  game.players[1].print("event " .. event.entity.name)
+  -- game.players[1].print("event " .. event.entity.name)
 
 
   if entities_l[event.entity.name] then
-    game.players[1].print("lightning")
-    build_entity(event, "mklv-lightning-collector-hidden")
+    -- game.players[1].print("lightning")
+    build_entity(event, "lightning-collector-hidden")
   end
 
   if entities_r[event.entity.name] then
-    game.players[1].print("radar")
-    build_entity(event, "mklv-radar-hidden")
+    -- game.players[1].print("radar")
+    build_entity(event, "mklv-radar-mk2-hidden")
   end
 end
 
@@ -60,18 +60,18 @@ local function destroy_entity(event, name)
 end
 
 local function destroy(event)
-  game.players[1].print("destroy")
+  -- game.players[1].print("destroy")
 
   if entities[event.entity.name] then
-    destroy_entity(event, "mklv-substation-hidden")
+    destroy_entity(event, "mklv-substation-mk2-hidden")
   end
 
   if entities_l[event.entity.name] then
-    destroy_entity(event, "mklv-lightning-collector-hidden")
+    destroy_entity(event, "lightning-collector-hidden")
   end
 
   if entities_r[event.entity.name] then
-    destroy_entity(event, "mklv-radar-hidden")
+    destroy_entity(event, "mklv-radar-mk2-hidden")
   end
 end
 

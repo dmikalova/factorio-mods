@@ -1,5 +1,7 @@
 local mklv_consts = require("__mklv-lib__.consts")
+
 local name = "mklv-radar-mk2"
+local tint = mklv_consts.tints.acid
 
 --[[ Overview
 
@@ -16,13 +18,14 @@ Adds a radar MK2 that can be better chunk aligned:
 local entity = table.deepcopy(data.raw["radar"]["radar"])
 
 entity.name = name
+entity.minable.result = name
 entity.energy_usage = "600kW"
 entity.energy_per_sector = "8MJ"
 entity.icons = { {
   icon = "__base__/graphics/icons/radar.png",
-  tint = mklv_consts.tints.mk2,
+  tint = tint,
 } }
-entity.pictures.layers[1].tint = mklv_consts.tints.mk2
+entity.pictures.layers[1].tint = tint
 -- TODO: account for quality increasing  range
 entity.max_distance_of_sector_revealed = 16
 entity.max_distance_of_nearby_sector_revealed = 8
@@ -33,7 +36,7 @@ local item = table.deepcopy(data.raw.item["radar"])
 
 item.icons = { {
   icon = "__base__/graphics/icons/radar.png",
-  tint = mklv_consts.tints.mk2
+  tint = tint
 } }
 item.name = name
 item.order = "d[radar]-m[radar]"
@@ -45,7 +48,7 @@ local recipe = table.deepcopy(data.raw.recipe["radar"])
 recipe.name = name
 recipe.category_id = "metallurgy"
 recipe.ingredients = {
-  { type = "item", name = "radar",    amount = 1 },
+  { type = "item", name = "radar",          amount = 1 },
   { type = "item", name = "tungsten-plate", amount = 5 },
 }
 recipe.results = { {
@@ -60,7 +63,7 @@ recipe.surface_conditions = {
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["radar-remnants"])
 remnants.name = name .. "-remnants"
-remnants.animation[1].tint = mklv_consts.tints.mk2
+remnants.animation[1].tint = tint
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["radar"])
@@ -72,7 +75,7 @@ technology.effects = { {
 technology.icons = { {
   icon = "__base__/graphics/technology/radar.png",
   icon_size = 256,
-  tint = mklv_consts.tints.mk2,
+  tint = tint,
 } }
 technology.name = name
 technology.prerequisites = {

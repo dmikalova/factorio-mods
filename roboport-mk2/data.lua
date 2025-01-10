@@ -1,5 +1,7 @@
 local mklv_consts = require("__mklv-lib__.consts")
+
 local name = "mklv-roboport-mk2"
+local tint = mklv_consts.tints.acid
 
 --[[ Overview
 
@@ -12,16 +14,17 @@ Adds a Roboport Mk2 that can be chunk aligned in a 64x64 grid:
 - Increases the number of robot charging slots with quality
 - Assembled in cryogenic lab on gleb
 
-]]--
+]]             --
 
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["roboport"]["roboport"])
 
-entity.door_animation_down.tint = mklv_consts.tints.mk2
-entity.door_animation_up.tint = mklv_consts.tints.mk2
-entity.base_animation.tint = mklv_consts.tints.mk2
-entity.base_patch.tint = mklv_consts.tints.mk2
-entity.base.layers[1].tint = mklv_consts.tints.mk2
+entity.minable.result = name
+entity.door_animation_down.tint = tint
+entity.door_animation_up.tint = tint
+entity.base_animation.tint = tint
+entity.base_patch.tint = tint
+entity.base.layers[1].tint = tint
 entity.charging_offsets = {
   -- circle with 16 points of radius 2
   -- top right
@@ -50,7 +53,7 @@ entity.construction_radius = 69
 entity.corpse = name .. "-remnants"
 entity.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
-  tint = mklv_consts.tints.mk2
+  tint = tint
 } }
 entity.logistics_radius = 32
 entity.material_slots_count = 10
@@ -69,7 +72,7 @@ local item = table.deepcopy(data.raw.item["roboport"])
 
 item.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
-  tint = mklv_consts.tints.mk2
+  tint = tint
 } }
 item.name = name
 item.order = "c[signal]-a[roboport]am2"
@@ -97,8 +100,8 @@ recipe.surface_conditions = {
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
 remnants.name = name .. "-remnants"
-remnants.animation[1].tint = mklv_consts.tints.mk2
-remnants.animation[2].tint = mklv_consts.tints.mk2
+remnants.animation[1].tint = tint
+remnants.animation[2].tint = tint
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["logistic-robotics"])
@@ -110,7 +113,7 @@ technology.effects = { {
 technology.icons = { {
   icon = "__base__/graphics/technology/logistic-robotics.png",
   icon_size = 256,
-  tint = mklv_consts.tints.mk2,
+  tint = tint,
 } }
 technology.name = name
 technology.prerequisites = {

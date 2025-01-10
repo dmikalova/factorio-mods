@@ -1,5 +1,7 @@
 local mklv_consts = require("__mklv-lib__.consts")
+
 local name = "mklv-substation-mk2"
+local tint = mklv_consts.tints.acid
 
 --[[ Overview
 
@@ -13,20 +15,22 @@ Adds a Substation MK2 that can be chunk aligned in a 32x32 grid at legendary qua
 local entity = table.deepcopy(data.raw["electric-pole"]["substation"])
 
 entity.name = name
+entity.minable.result = name
 entity.maximum_wire_distance = 22
 entity.supply_area_distance = 11
 entity.icons = { {
   icon = "__base__/graphics/icons/substation.png",
-  tint = mklv_consts.tints.mk2,
+  tint = tint,
 } }
-entity.pictures.layers[1].tint = mklv_consts.tints.mk2
+entity.pictures.layers[1].tint = tint
+entity.pictures.layers[2].tint = tint
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["substation"])
 
 item.icons = { {
   icon = "__base__/graphics/icons/substation.png",
-  tint = mklv_consts.tints.mk2
+  tint = tint
 } }
 item.name = name
 item.order = "a[energy]-m[substation]"
@@ -54,7 +58,7 @@ recipe.surface_conditions = {
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["substation-remnants"])
 remnants.name = name .. "-remnants"
-remnants.animation[1].tint = mklv_consts.tints.mk2
+remnants.animation[1].tint = tint
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["electric-energy-distribution-2"])
@@ -66,7 +70,7 @@ technology.effects = { {
 technology.icons = { {
   icon = "__base__/graphics/technology/electric-energy-distribution-2.png",
   icon_size = 256,
-  tint = mklv_consts.tints.mk2,
+  tint = tint,
 } }
 technology.name = name
 technology.prerequisites = {

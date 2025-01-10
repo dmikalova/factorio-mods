@@ -12,7 +12,9 @@
 
 local mklv_consts = require("__mklv-lib__.consts")
 local mklv_hidden_entity = require("__mklv-lib__/hidden-entity")
+
 local name = "mklv-utility-station"
+local tint = mklv_consts.tints.pink
 
 --[[ Overview
 
@@ -20,51 +22,62 @@ Adds a Utility Station that combines the functions of a Roboport and Substation,
 
 - Assembled in an electromagnetic plant on Nauvis
 
-]] --
+]]             --
 
 --[[ Entity ]] --
-local entity                    = table.deepcopy(data.raw["roboport"]["roboport"])
+local entity          = table.deepcopy(data.raw["roboport"]["roboport"])
 
-entity.door_animation_down.tint = mklv_consts.tints.mk1
-entity.door_animation_up.tint   = mklv_consts.tints.mk1
-entity.base_animation.tint      = mklv_consts.tints.mk1
-entity.base_patch.tint          = mklv_consts.tints.mk1
-entity.base.layers[1].tint      = mklv_consts.tints.mk1
-entity.corpse                   = name .. "-remnants"
-entity.icons                    = {
+entity.minable.result = name
+entity.door_animation_down.tint = tint
+entity.door_animation_up.tint   = tint
+entity.base_animation.tint      = tint
+entity.base_patch.tint          = tint
+entity.base.layers[1].tint      = tint
+entity.corpse         = name .. "-remnants"
+entity.icons          = {
   {
     icon = "__base__/graphics/icons/roboport.png",
-    tint = mklv_consts.tints.mk1
+    tint = tint
   },
   {
     icon = "__base__/graphics/icons/substation.png",
     scale = 0.5,
     shift = { 60, 60 },
-    tint = mklv_consts.tints.mk1,
+    tint = tint,
   }
 }
-entity.name                     = name
+entity.name           = name
 
-if mods["mklv-utility-station-mk2"] then
-  entity.next_upgrade = "mklv-utility-station-mk2"
-end
+-- if mods["mklv-utility-station-mk2"] then
+--   entity.next_upgrade = "mklv-utility-station-mk2"
+-- end
 
 --[[ Hidden entities]] --
 local hidden_substation                  = mklv_hidden_entity("electric-pole", "substation")
+-- hidden_substation.connection_points       = { {
+--   shadow = { copper = { 3.15, -0.6 } },
+--   wire = { copper = { 1.35, -1.75 } }
+-- } }
 hidden_substation.fast_replaceable_group = entity.fast_replaceable_group
-hidden_substation.connection_points      = { {
-  shadow = { copper = { 3.15, -0.6 } },
-  wire = { copper = { 1.35, -1.75 } }
-} }
+hidden_substation.pictures.layers[1].tint = tint
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
 
-item.icons = { {
-  icon = "__base__/graphics/icons/roboport.png",
-  tint = mklv_consts.tints.mk1
-} }
--- item.sprite = name .. "-icon"
+item.icons = {
+  {
+    icon = "__base__/graphics/icons/roboport.png",
+    scale = 1.7,
+    shift = { 0, 24 },
+    tint = tint
+  },
+  {
+    icon = "__base__/graphics/icons/substation.png",
+    scale = 1.2,
+    shift = { 80, -32 },
+    tint = tint,
+  },
+}
 item.name = name
 item.order = "c[signal]-a[roboport]amu1"
 item.place_result = name
@@ -75,26 +88,23 @@ local recipe = table.deepcopy(data.raw.recipe["roboport"])
 recipe.name = name
 recipe.category_id = "electromagnetic"
 recipe.ingredients = {
-  -- TODO: proper recipe
-  { type = "item", name = "roboport",   amount = 1 },
-  { type = "item", name = "substation", amount = 1 },
-  { type = "item", name = "raw-fish",   amount = 5 },
   { type = "item", name = "wood",       amount = 5 },
+  { type = "item", name = "raw-fish",   amount = 5 },
+  { type = "item", name = "substation", amount = 1 },
+  { type = "item", name = "roboport",   amount = 1 },
 }
 recipe.results = { {
   amount = 1,
   name = name,
   type = "item",
 } }
-recipe.surface_conditions = {
-  mklv_consts.surface_conditions.pressure.nauvis,
-}
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.nauvis }
 
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
 remnants.name = name .. "-remnants"
-remnants.animation[1].tint = mklv_consts.tints.mk1
-remnants.animation[2].tint = mklv_consts.tints.mk1
+remnants.animation[1].tint = tint
+remnants.animation[2].tint = tint
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["logistic-robotics"])
@@ -108,7 +118,7 @@ technology.effects = {
 technology.icons = { {
   icon = "__base__/graphics/technology/logistic-robotics.png",
   icon_size = 256,
-  tint = mklv_consts.tints.mk1,
+  tint = tint,
   -- TODO: overlay with substation icon
 } }
 technology.name = name

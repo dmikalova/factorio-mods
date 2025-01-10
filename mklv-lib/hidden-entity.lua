@@ -1,5 +1,5 @@
 local function hidden_entity(prototype, name)
-  entity = table.deepcopy(data.raw[prototype][name])
+  local entity = table.deepcopy(data.raw[prototype][name])
   entity.collision_box = { { -0, -0 }, { 0, 0 } }
   entity.collision_mask = {
     colliding_with_tiles_only = true,
@@ -7,7 +7,6 @@ local function hidden_entity(prototype, name)
     not_colliding_with_itself = true
   }
   entity.flags = {
-    -- "hidden",
     "hide-alt-info",
     "no-copy-paste",
     "not-blueprintable",
@@ -15,21 +14,16 @@ local function hidden_entity(prototype, name)
     "not-flammable",
     "not-on-map",
     "not-selectable-in-game",
-    -- "not-upgradable",
     "placeable-off-grid",
     "placeable-player",
   }
+  entity.hidden = true
+  entity.hidden_in_factoriopedia = true
   entity.max_health = 2147483648
-  entity.name = "mklv-" .. entity.name .. "-hidden"
+  entity.name = entity.name .. "-hidden"
   entity.next_upgrade = nil
   entity.order = "z"
   entity.selection_box = nil
-  entity.pictures = {
-    filename = "__mklv-lib__/graphics/hidden-entity.png",
-    width = 1,
-    height = 1,
-    direction_count = 1
-  }
   return entity
 end
 

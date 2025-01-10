@@ -26,16 +26,19 @@ return {
     }
   },
   tints = {
-    mk1 = {
-      r = 255 / 255,
-      g = 230 / 255,
-      b = 200 / 255,
-    },
-    mk2 = {
-      r = 230 / 255,
-      g = 255 / 255,
-      b = 200 / 255,
-    },
+    -- source: https://github.com/justarandomgeek/factorio-color-coding/blob/master/prototypes/config.lua
+    acid = { r = 0.559, g = 0.761, b = 0.157, a = 1 },
+    black = { r = 0.1, g = 0.1, b = 0.1, a = 1 },
+    blue = { r = 0.155, g = 0.540, b = 0.898, a = 1 },
+    brown = { r = 0.300, g = 0.117, b = 0.0, a = 1 },
+    cyan = { r = 0.275, g = 0.755, b = 0.712, a = 1 },
+    green = { r = 0.093, g = 0.768, b = 0.172, a = 1 },
+    orange = { r = 0.869, g = 0.5, b = 0.130, a = 1 },
+    pink = { r = 0.929, g = 0.386, b = 0.514, a = 1 },
+    purple = { r = 0.485, g = 0.111, b = 0.659, a = 1 },
+    red = { r = 0.815, g = 0.024, b = 0.0, a = 1 },
+    white = { r = 1.0, g = 1.0, b = 1.0, a = 1 },
+    yellow = { r = 0.835, g = 0.666, b = 0.077, a = 1 },
   },
   surface_conditions = {
     gravity = {

@@ -28,3 +28,6 @@ Shortcuts:
 
 - `Ctrl+Shift+F`: Open prototype definition for entity being hovered over
 - `Ctrl+Shift+E`: Open a list of all prototypes
+- `\``: Open the Lua console
+- `/cheat all`: Enable all tech/recipes/etc
+- `/cheat $PLANET`: Teleport to a planet

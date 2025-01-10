@@ -1,12 +1,15 @@
 #!/bin/bash
 
-rm ../data-table
+GRAPHICS_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../graphics" &>/dev/null && pwd)
+DATA_TABLE=$GRAPHICS_DIR/data-table
+
+rm -f "$DATA_TABLE"
 SEED0=tree-seed
 SEED1=jellynut-seed
 SEED2=yumako-seed
 
 i=0
-for file in ./*; do
+for file in "$GRAPHICS_DIR/images/"*; do
   if [ -f "$file" ]; then
     printf -v N "%02d" "$i"
     W=$(identify -format "%w" "$file")
@@ -19,13 +22,13 @@ for file in ./*; do
     esac
     echo "Plant ${N}: ${W}x${H} (${SEED})"
 
-    cat >>./data-table <<EOF
+    cat >>"$DATA_TABLE" <<EOF
 {
   ingredients = { { type = "item", name = "$SEED", amount = 1 } },
   localised_description = "",
   localised_name = "Plant ${i}",
   name = "potted-plant-${N}",
-  scale = 1,
+  scale = 0.3,
   size = { ${W}, ${H} },
 },
 EOF
