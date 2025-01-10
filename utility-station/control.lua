@@ -8,9 +8,10 @@ local function build_entity(event, name)
   local x = e.position.x
   local y = e.position.y
   local l = s.create_entity {
+    force = game.forces.neutral,
     name = name,
     position = { x, y },
-    force = game.forces.neutral
+    quality = e.quality,
   }
   l.destructible = false
 end
@@ -20,16 +21,16 @@ local function build(event)
 
   if entities[event.entity.name] then
     -- game.players[1].print("substation")
-    build_entity(event, "substation-hidden")
+    build_entity(event, "substation-combined")
   end
   -- game.players[1].print("event " .. event.entity.name)
 end
 
 local function destroy_entity(event, name)
-  local s = event.entity
-  local x = s.position.x
-  local y = s.position.y
-  local entity = s.surface.find_entity(name, { x, y })
+  local e = event.entity
+  local x = e.position.x
+  local y = e.position.y
+  local entity = e.surface.find_entity({ name = name, quality = e.quality }, { x, y })
   if entity ~= nil then
     entity.destroy()
   end
@@ -39,7 +40,7 @@ local function destroy(event)
   -- game.players[1].print("destroy")
 
   if entities[event.entity.name] then
-    destroy_entity(event, "substation-hidden")
+    destroy_entity(event, "substation-combined")
   end
 end
 

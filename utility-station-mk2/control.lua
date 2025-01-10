@@ -21,10 +21,12 @@ local function build_entity(event, name)
   local x = e.position.x
   local y = e.position.y
   local l = s.create_entity {
+    force = game.forces.neutral,
     name = name,
     position = { x, y },
-    force = game.forces.neutral
+    quality = e.quality,
   }
+  -- TODO: transfer quality
   l.destructible = false
 end
 
@@ -33,27 +35,28 @@ local function build(event)
 
   if entities[event.entity.name] then
     -- game.players[1].print("substation")
-    build_entity(event, "mklv-substation-mk2-hidden")
+    build_entity(event, "mklv-substation-mk2-combined")
   end
   -- game.players[1].print("event " .. event.entity.name)
 
 
   if entities_l[event.entity.name] then
     -- game.players[1].print("lightning")
-    build_entity(event, "lightning-collector-hidden")
+    build_entity(event, "lightning-collector-combined")
   end
 
   if entities_r[event.entity.name] then
     -- game.players[1].print("radar")
-    build_entity(event, "mklv-radar-mk2-hidden")
+    build_entity(event, "mklv-radar-mk2-combined")
   end
 end
 
 local function destroy_entity(event, name)
-  local s = event.entity
-  local x = s.position.x
-  local y = s.position.y
-  local entity = s.surface.find_entity(name, { x, y })
+  local e = event.entity
+  local x = e.position.x
+  local y = e.position.y
+  -- game.players[1].print("destroy_entity " .. e.quality.level .. e.quality.name)
+  local entity = e.surface.find_entity({ name = name, quality = e.quality.name }, { x, y })
   if entity ~= nil then
     entity.destroy()
   end
@@ -63,15 +66,15 @@ local function destroy(event)
   -- game.players[1].print("destroy")
 
   if entities[event.entity.name] then
-    destroy_entity(event, "mklv-substation-mk2-hidden")
+    destroy_entity(event, { "mklv-substation-mk2-combined" })
   end
 
   if entities_l[event.entity.name] then
-    destroy_entity(event, "lightning-collector-hidden")
+    destroy_entity(event, { "lightning-collector-combined" })
   end
 
   if entities_r[event.entity.name] then
-    destroy_entity(event, "mklv-radar-mk2-hidden")
+    destroy_entity(event, { "mklv-radar-mk2-combined" })
   end
 end
 

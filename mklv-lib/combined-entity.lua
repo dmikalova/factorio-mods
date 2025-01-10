@@ -1,4 +1,4 @@
-local function hidden_entity(prototype, name)
+local function combined_entity(prototype, name)
   local entity = table.deepcopy(data.raw[prototype][name])
   entity.collision_box = { { -0, -0 }, { 0, 0 } }
   entity.collision_mask = {
@@ -17,14 +17,14 @@ local function hidden_entity(prototype, name)
     "placeable-off-grid",
     "placeable-player",
   }
-  entity.hidden = true
-  entity.hidden_in_factoriopedia = true
+  entity.combined = true
+  entity.combined_in_factoriopedia = true
   entity.max_health = 2147483648
-  entity.name = entity.name .. "-hidden"
+  entity.name = entity.name .. "-combined"
   entity.next_upgrade = nil
   entity.order = "z"
   entity.selection_box = nil
   return entity
 end
 
-return hidden_entity
+return combined_entity

@@ -1,14 +1,14 @@
-local mklv_consts                                           = require("__mklv-lib__.consts")
-local mklv_hidden_entity                                    = require("__mklv-lib__/hidden-entity")
+local mklv_consts                = require("__mklv-lib__.consts")
+local mklv_combined_entity       = require("__mklv-lib__/combined-entity")
 
-local name                                                  = "mklv-utility-station-mk2"
-local name_l                                                = name .. "-l"
-local name_r                                                = name .. "-r"
-local name_rl                                               = name .. "-rl"
-local tint                                                  = mklv_consts.tints.green
-local tint_l                                                = mklv_consts.tints.yellow
-local tint_r                                                = mklv_consts.tints.purple
-local tint_rl                                               = mklv_consts.tints.white
+local name                       = "mklv-utility-station-mk2"
+local name_l                     = name .. "-l"
+local name_r                     = name .. "-r"
+local name_rl                    = name .. "-rl"
+local tint                       = mklv_consts.tints.green
+local tint_l                     = mklv_consts.tints.yellow
+local tint_r                     = mklv_consts.tints.pink
+local tint_rl                    = mklv_consts.tints.purple
 
 --[[ Overview
 
@@ -19,48 +19,57 @@ Adds Utility Station MK2 that combines the functions of Roboports and Substation
 
 ]] --
 
--- Copy quality level to hidden entity
+-- Copy quality level to combined entity
 -- TODO: extend roboport mk2 circuit connection length?
 -- TODO: fix scale of item in chest
 -- TODO: different tints for -l, -r, -rl
--- tints https://github.com/justarandomgeek/factorio-color-coding/blob/master/prototypes/config.lua
--- resize https://mods.factorio.com/mod/mini?from=search
 
 ; --[[ Entity ]] --
-local entity                                                = table.deepcopy(data.raw["roboport"]
+local entity                     = table.deepcopy(data.raw["roboport"]
   ["mklv-utility-station"])
 
-entity.minable.result                                       = name
-entity.collision_box                                        = { { -0.85, -0.85 }, { 0.85, 0.85 } }
-entity.selection_box                                        = { { -1, -1 }, { 1, 1 } }
-entity.door_animation_down.tint                             = tint
-entity.door_animation_down.scale                            = 0.25
-entity.door_animation_down.shift                            = { -0.007813 * 0.125 - 0.025, -0.617188 * 0.125 - 0.04 }
-entity.door_animation_up.tint                               = tint
-entity.door_animation_up.scale                              = 0.25
-entity.door_animation_up.shift                              = { -0.007813 * 0.125 - 0.025, -1.234375 * 0.25 - 0.12 }
-entity.base_animation.tint                                  = tint
+entity.circuit_wire_max_distance = 16
+entity.collision_box             = { { -0.85, -0.85 }, { 0.85, 0.85 } }
+entity.minable.result            = name
+entity.selection_box             = { { -1, -1 }, { 1, 1 } }
+entity.name                      = name
+entity.next_upgrade              = nil
+entity.corpse                    = name .. "-remnants"
+
+
 entity.base_animation.scale                                 = 0.25
 entity.base_animation.shift                                 = { -0.32, -1 }
-entity.base_patch.tint                                      = tint
+entity.base_animation.tint                                  = tint
 entity.base_patch.scale                                     = 0.25
 entity.base_patch.shift                                     = { 0, 0.125 }
-entity.base.layers[1].tint                                  = tint
+entity.base_patch.tint                                      = tint
 entity.base.layers[1].scale                                 = 0.25
 entity.base.layers[1].shift                                 = { 0, 0.125 }
+entity.base.layers[1].tint                                  = tint
 entity.base.layers[2].scale                                 = 0.25
 entity.base.layers[2].shift                                 = { 1, 0.125 }
-entity.circuit_wire_max_distance                            = 16
+entity.door_animation_down.scale                            = 0.25
+entity.door_animation_down.shift                            = { -0.007813 * 0.125 - 0.025, -0.617188 * 0.125 - 0.04 }
+entity.door_animation_down.tint                             = tint
+entity.door_animation_up.scale                              = 0.25
+entity.door_animation_up.shift                              = { -0.007813 * 0.125 - 0.025, -1.234375 * 0.25 - 0.12 }
+entity.door_animation_up.tint                               = tint
 
 entity.circuit_connector.sprites.blue_led_light_offset      = { 0.578125 - 0.125, 1.25 - 0.4 }
 entity.circuit_connector.sprites.connector_main.shift       = { 0.578125 - 0.125, 1 - 0.4 }
-entity.circuit_connector.sprites.led_blue.shift             = { 0.578125 - 0.125, 0.96875 - 0.4 }
 entity.circuit_connector.sprites.led_blue_off.shift         = { 0.578125 - 0.125, 0.96875 - 0.4 }
+entity.circuit_connector.sprites.led_blue.shift             = { 0.578125 - 0.125, 0.96875 - 0.4 }
 entity.circuit_connector.sprites.led_green.shift            = { 0.578125 - 0.125, 0.96875 - 0.4 }
 entity.circuit_connector.sprites.led_red.shift              = { 0.578125 - 0.125, 0.96875 - 0.4 }
 entity.circuit_connector.sprites.red_green_led_light_offset = { 0.578125 - 0.125, 1.15625 - 0.4 }
 entity.circuit_connector.sprites.wire_pins.shift            = { 0.578125 - 0.125, 1 - 0.4 }
 
+entity.icons                                                = { {
+  icon = "__base__/graphics/icons/roboport.png",
+  tint = tint
+} }
+
+-- TODO are these in the right place? remove scaler
 local connection_points_scale                               = 0.5
 entity.circuit_connector.points                             = {
   shadow = {
@@ -76,34 +85,33 @@ entity.circuit_connector.points                             = {
     red = { 0.6875 * 0.5, -2.53125 * connection_points_scale - 0.5 }
   }
 }
-entity.corpse                                               = name .. "-remnants"
-entity.icons                                                = { {
-  icon = "__base__/graphics/icons/roboport.png",
-  tint = tint
-} }
-entity.name                                                 = name
-entity.next_upgrade                                         = nil
 
 --[[ Variant entities]] --
-local entity_l                                                        = table.deepcopy(entity)
-entity_l.name                                                         = name_l
-entity_l.minable.result                                               = name_l
-entity_l.surface_conditions                                           = { mklv_consts.surface_conditions.magnetic_field
+local entity_l                                = table.deepcopy(entity)
+entity_l.name                                 = name_l
+entity_l.minable.result                       = name_l
+entity_l.surface_conditions                   = { mklv_consts.surface_conditions
+    .magnetic_field
     .fulgora }
 
-local entity_r                                                        = table.deepcopy(entity)
-entity_r.name                                                         = name_r
-entity_r.minable.result                                               = name_r
-local entity_rl                                                       = table.deepcopy(entity_r)
-entity_rl.name                                                        = name_rl
-entity_rl.minable.result                                              = name_rl
-entity_rl.surface_conditions                                          = { mklv_consts.surface_conditions.magnetic_field
+local entity_r                                = table.deepcopy(entity)
+entity_r.name                                 = name_r
+entity_r.minable.result                       = name_r
+
+local entity_rl                               = table.deepcopy(entity_r)
+entity_rl.name                                = name_rl
+entity_rl.minable.result                      = name_rl
+entity_rl.surface_conditions                  = { mklv_consts.surface_conditions
+    .magnetic_field
     .fulgora }
 
-local hidden_substation                                               = mklv_hidden_entity("electric-pole",
+local combined_substation                     = mklv_combined_entity("electric-pole",
   "mklv-substation-mk2")
+combined_substation.fast_replaceable_group    = entity.fast_replaceable_group
+combined_substation.pictures.layers[1].tint   = tint
+combined_substation.pictures.layers[1].scale  = 0.25
 
-hidden_substation.connection_points                                   = {
+combined_substation.connection_points         = {
   {
     shadow = {
       -- copper = { 4.25, 0.25 },
@@ -162,30 +170,27 @@ hidden_substation.connection_points                                   = {
   }
 }
 
-hidden_substation.fast_replaceable_group                              = entity.fast_replaceable_group
-hidden_substation.pictures.layers[1].tint                             = tint
-hidden_substation.pictures.layers[1].scale                            = 0.25
--- hidden_substation.pictures.layers[2].tint                             = tint
--- hidden_substation.pictures.layers[2].scale                            = 0.25
+local combined_radar                          = mklv_combined_entity("radar", "mklv-radar-mk2")
+combined_radar.fast_replaceable_group         = entity.fast_replaceable_group
+combined_radar.integration_patch              = nil
+combined_radar.integration_patch_render_layer = nil
 
-local hidden_radar                                                    = mklv_hidden_entity("radar", "mklv-radar-mk2")
-hidden_radar.fast_replaceable_group                                   = entity.fast_replaceable_group
-hidden_radar.pictures                                                 = {
+combined_radar.pictures                       = {
   filename = "__mklv-lib__/graphics/hidden-entity.png",
   width = 1,
   height = 1,
   direction_count = 1
 }
 
-local hidden_lightning_collector                                      = mklv_hidden_entity("lightning-attractor",
-  "lightning-collector")
-hidden_lightning_collector.fast_replaceable_group                     = entity.fast_replaceable_group
 
-hidden_lightning_collector.chargable_graphics.picture.layers[1].tint  = tint
-hidden_lightning_collector.chargable_graphics.picture.layers[1].scale = 0.25
-hidden_lightning_collector.chargable_graphics.picture.layers[1].shift = { 0, -0.6 }
-hidden_lightning_collector.chargable_graphics.picture.layers[2].scale = 0.25
-hidden_lightning_collector.chargable_graphics.picture.layers[2].shift = { 0, -0.6 }
+local combined_lightning_collector                                      = mklv_combined_entity("lightning-attractor",
+  "lightning-collector")
+combined_lightning_collector.chargable_graphics.picture.layers[1].scale = 0.25
+combined_lightning_collector.chargable_graphics.picture.layers[1].shift = { 0, -0.6 }
+combined_lightning_collector.chargable_graphics.picture.layers[1].tint  = tint
+combined_lightning_collector.chargable_graphics.picture.layers[2].scale = 0.25
+combined_lightning_collector.chargable_graphics.picture.layers[2].shift = { 0, -0.6 }
+combined_lightning_collector.fast_replaceable_group                     = entity.fast_replaceable_group
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["mklv-utility-station"])
@@ -200,7 +205,7 @@ item.icons = {
   {
     icon = "__base__/graphics/icons/substation.png",
     scale = 1.2,
-    shift = { 80, -32 },
+    shift = { 100, -32 },
     tint = tint,
   },
 }
@@ -210,16 +215,20 @@ item.place_result = name
 
 --[[ Combined items ]] --
 local item_l = table.deepcopy(item)
+item_l.icons[1].tint = tint_l
+item_l.icons[2].tint = tint_l
 table.insert(item_l.icons, {
   icon = "__space-age__/graphics/icons/lightning-collector.png",
   scale = 1.2,
-  shift = { 32, -32 },
+  shift = { 50, -32 },
   tint = tint_l
 })
 item_l.name = name_l
 item_l.place_result = name_l
 
 local item_r = table.deepcopy(item)
+item_r.icons[1].tint = tint_r
+item_r.icons[2].tint = tint_r
 table.insert(item_r.icons, {
   icon = "__base__/graphics/icons/radar.png",
   scale = 1.2,
@@ -230,6 +239,9 @@ item_r.name = name_r
 item_r.place_result = name_r
 
 local item_rl = table.deepcopy(item_l)
+item_rl.icons[1].tint = tint_rl
+item_rl.icons[2].tint = tint_rl
+item_rl.icons[3].tint = tint_rl
 table.insert(item_rl.icons, {
   icon = "__base__/graphics/icons/radar.png",
   scale = 1.2,
@@ -362,9 +374,9 @@ data:extend {
   entity_r,
   entity_rl,
   entity,
-  hidden_lightning_collector,
-  hidden_radar,
-  hidden_substation,
+  combined_lightning_collector,
+  combined_radar,
+  combined_substation,
   item_l,
   item_r,
   item_rl,

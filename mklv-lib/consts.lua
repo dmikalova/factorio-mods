@@ -1,3 +1,19 @@
+local function tint_scale(v)
+  return 1 - ((1 - v) / 2)
+end
+
+local function tinter(tints)
+  for k, v in pairs(tints) do
+    tints[k] = {
+      r = tint_scale(v.r),
+      g = tint_scale(v.g),
+      b = tint_scale(v.b),
+      a = v.a
+    }
+  end
+  return tints
+end
+
 return {
   transfer_ref = {
     lightning_attractor = {
@@ -25,7 +41,7 @@ return {
       }
     }
   },
-  tints = {
+  tints = tinter({
     -- source: https://github.com/justarandomgeek/factorio-color-coding/blob/master/prototypes/config.lua
     acid = { r = 0.559, g = 0.761, b = 0.157, a = 1 },
     black = { r = 0.1, g = 0.1, b = 0.1, a = 1 },
@@ -39,7 +55,7 @@ return {
     red = { r = 0.815, g = 0.024, b = 0.0, a = 1 },
     white = { r = 1.0, g = 1.0, b = 1.0, a = 1 },
     yellow = { r = 0.835, g = 0.666, b = 0.077, a = 1 },
-  },
+  }),
   surface_conditions = {
     gravity = {
       any_planet = {

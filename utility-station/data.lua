@@ -11,7 +11,7 @@
 
 
 local mklv_consts = require("__mklv-lib__.consts")
-local mklv_hidden_entity = require("__mklv-lib__/hidden-entity")
+local mklv_combined_entity = require("__mklv-lib__/combined-entity")
 
 local name = "mklv-utility-station"
 local tint = mklv_consts.tints.pink
@@ -52,14 +52,14 @@ entity.name           = name
 --   entity.next_upgrade = "mklv-utility-station-mk2"
 -- end
 
---[[ Hidden entities]] --
-local hidden_substation                  = mklv_hidden_entity("electric-pole", "substation")
--- hidden_substation.connection_points       = { {
+--[[ combined entities]] --
+local combined_substation                  = mklv_combined_entity("electric-pole", "substation")
+-- combined_substation.connection_points       = { {
 --   shadow = { copper = { 3.15, -0.6 } },
 --   wire = { copper = { 1.35, -1.75 } }
 -- } }
-hidden_substation.fast_replaceable_group = entity.fast_replaceable_group
-hidden_substation.pictures.layers[1].tint = tint
+combined_substation.fast_replaceable_group = entity.fast_replaceable_group
+combined_substation.pictures.layers[1].tint = tint
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
@@ -148,7 +148,7 @@ technology.unit = {
 --[[ Export ]] --
 data:extend {
   entity,
-  hidden_substation,
+  combined_substation,
   item,
   recipe,
   remnants,
