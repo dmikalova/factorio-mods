@@ -17,8 +17,8 @@ local function combined_entity(prototype, name)
     "placeable-off-grid",
     "placeable-player",
   }
-  entity.combined = true
-  entity.combined_in_factoriopedia = true
+  entity.hidden = true
+  entity.hidden_in_factoriopedia = true
   entity.max_health = 2147483648
   entity.name = entity.name .. "-combined"
   entity.next_upgrade = nil

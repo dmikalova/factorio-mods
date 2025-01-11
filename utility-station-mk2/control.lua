@@ -26,7 +26,6 @@ local function build_entity(event, name)
     position = { x, y },
     quality = e.quality,
   }
-  -- TODO: transfer quality
   l.destructible = false
 end
 
@@ -55,7 +54,7 @@ local function destroy_entity(event, name)
   local e = event.entity
   local x = e.position.x
   local y = e.position.y
-  -- game.players[1].print("destroy_entity " .. e.quality.level .. e.quality.name)
+  -- game.players[1].print("destroy_entity " .. name .. e.quality.level .. e.quality.name)
   local entity = e.surface.find_entity({ name = name, quality = e.quality.name }, { x, y })
   if entity ~= nil then
     entity.destroy()
@@ -66,15 +65,15 @@ local function destroy(event)
   -- game.players[1].print("destroy")
 
   if entities[event.entity.name] then
-    destroy_entity(event, { "mklv-substation-mk2-combined" })
+    destroy_entity(event, "mklv-substation-mk2-combined")
   end
 
   if entities_l[event.entity.name] then
-    destroy_entity(event, { "lightning-collector-combined" })
+    destroy_entity(event, "lightning-collector-combined")
   end
 
   if entities_r[event.entity.name] then
-    destroy_entity(event, { "mklv-radar-mk2-combined" })
+    destroy_entity(event, "mklv-radar-mk2-combined")
   end
 end
 

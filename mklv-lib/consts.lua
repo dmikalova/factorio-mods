@@ -1,5 +1,5 @@
 local function tint_scale(v)
-  return 1 - ((1 - v) / 2)
+  return 1 - ((1 - v) / 3)
 end
 
 local function tinter(tints)

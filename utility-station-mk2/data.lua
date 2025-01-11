@@ -5,7 +5,7 @@ local name                       = "mklv-utility-station-mk2"
 local name_l                     = name .. "-l"
 local name_r                     = name .. "-r"
 local name_rl                    = name .. "-rl"
-local tint                       = mklv_consts.tints.green
+local tint                       = mklv_consts.tints.acid
 local tint_l                     = mklv_consts.tints.yellow
 local tint_r                     = mklv_consts.tints.pink
 local tint_rl                    = mklv_consts.tints.purple
@@ -16,19 +16,15 @@ Adds Utility Station MK2 that combines the functions of Roboports and Substation
 
 - Assembled in a biochamber on vulcanis
 - -l, -r, and -rl variants with Lightning Collector, Radar, and both
+-- TODO writeup details
 
 ]] --
 
--- Copy quality level to combined entity
--- TODO: extend roboport mk2 circuit connection length?
--- TODO: fix scale of item in chest
--- TODO: different tints for -l, -r, -rl
-
-; --[[ Entity ]] --
+ --[[ Entity ]] --
 local entity                     = table.deepcopy(data.raw["roboport"]
   ["mklv-utility-station"])
 
-entity.circuit_wire_max_distance = 16
+entity.circuit_wire_max_distance = 30
 entity.collision_box             = { { -0.85, -0.85 }, { 0.85, 0.85 } }
 entity.minable.result            = name
 entity.selection_box             = { { -1, -1 }, { 1, 1 } }
@@ -69,7 +65,6 @@ entity.icons                                                = { {
   tint = tint
 } }
 
--- TODO are these in the right place? remove scaler
 local connection_points_scale                               = 0.5
 entity.circuit_connector.points                             = {
   shadow = {
@@ -195,17 +190,22 @@ combined_lightning_collector.fast_replaceable_group                     = entity
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["mklv-utility-station"])
 
+local icon_roboport_scale = 0.425
+local icon_others_scale = 0.3
+
 item.icons = {
   {
     icon = "__base__/graphics/icons/roboport.png",
-    scale = 1.7,
-    shift = { 0, 24 },
+    icon_size = 64,
+    scale = icon_roboport_scale,
+    shift = { 0, 12 },
     tint = tint
   },
   {
     icon = "__base__/graphics/icons/substation.png",
-    scale = 1.2,
-    shift = { 100, -32 },
+    icon_size = 64,
+    scale = icon_others_scale,
+    shift = { 28, -12},
     tint = tint,
   },
 }
@@ -219,8 +219,9 @@ item_l.icons[1].tint = tint_l
 item_l.icons[2].tint = tint_l
 table.insert(item_l.icons, {
   icon = "__space-age__/graphics/icons/lightning-collector.png",
-  scale = 1.2,
-  shift = { 50, -32 },
+  icon_size = 64,
+  scale = icon_others_scale,
+  shift = { 18, -12},
   tint = tint_l
 })
 item_l.name = name_l
@@ -231,8 +232,9 @@ item_r.icons[1].tint = tint_r
 item_r.icons[2].tint = tint_r
 table.insert(item_r.icons, {
   icon = "__base__/graphics/icons/radar.png",
-  scale = 1.2,
-  shift = { -16, -32 },
+  icon_size = 64,
+  scale = icon_others_scale,
+  shift = { -4, -12},
   tint = tint_r
 })
 item_r.name = name_r
@@ -244,8 +246,9 @@ item_rl.icons[2].tint = tint_rl
 item_rl.icons[3].tint = tint_rl
 table.insert(item_rl.icons, {
   icon = "__base__/graphics/icons/radar.png",
-  scale = 1.2,
-  shift = { -16, -32 },
+  icon_size = 64,
+  scale = icon_others_scale,
+  shift = { -4, -12},
   tint = tint_rl
 })
 item_rl.name = name_rl
@@ -307,9 +310,6 @@ recipe_rl.results = { {
 } }
 table.insert(recipe_rl.ingredients, 4, { type = "item", name = "mklv-radar-mk2", amount = 1 })
 
--- TODO: roboport icon should overlay substation etc
-
-
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
 remnants.name = name .. "-remnants"
@@ -337,12 +337,36 @@ technology.effects = {
     recipe = name_rl
   },
 }
-technology.icons = { {
-  icon = "__base__/graphics/technology/logistic-robotics.png",
-  icon_size = 256,
-  tint = tint,
-  -- TODO: overlay with substation lightning collector and radar
-} }
+technology.icons = {
+  {
+    icon = "__base__/graphics/technology/electric-energy-distribution-2.png",
+    icon_size = 256,
+    scale = icon_others_scale,
+    shift = { 80, -24 },
+    tint = tint,
+  },
+  {
+    icon = "__space-age__/graphics/technology/lightning-collector.png",
+    icon_size = 256,
+    scale = icon_others_scale,
+    shift = { 36, -24 },
+    tint = tint,
+  },
+  {
+    icon = "__base__/graphics/technology/radar.png",
+    icon_size = 256,
+    scale = icon_others_scale,
+    shift = { -16, -24 },
+    tint = tint,
+  },
+  {
+    icon = "__base__/graphics/technology/logistic-robotics.png",
+    icon_size = 256,
+    scale = icon_roboport_scale,
+    shift = { 0, 48 },
+    tint = tint,
+  },
+}
 technology.name = name
 technology.prerequisites = {
   "electric-energy-distribution-2",

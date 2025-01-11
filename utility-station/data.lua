@@ -14,7 +14,7 @@ local mklv_consts = require("__mklv-lib__.consts")
 local mklv_combined_entity = require("__mklv-lib__/combined-entity")
 
 local name = "mklv-utility-station"
-local tint = mklv_consts.tints.pink
+-- local tint = mklv_consts.tints.pink
 
 --[[ Overview
 
@@ -28,22 +28,22 @@ Adds a Utility Station that combines the functions of a Roboport and Substation,
 local entity          = table.deepcopy(data.raw["roboport"]["roboport"])
 
 entity.minable.result = name
-entity.door_animation_down.tint = tint
-entity.door_animation_up.tint   = tint
-entity.base_animation.tint      = tint
-entity.base_patch.tint          = tint
-entity.base.layers[1].tint      = tint
+-- -- entity.door_animation_down.tint = tint
+-- -- entity.door_animation_up.tint   = tint
+-- -- entity.base_animation.tint      = tint
+-- -- entity.base_patch.tint          = tint
+-- -- entity.base.layers[1].tint      = tint
 entity.corpse         = name .. "-remnants"
 entity.icons          = {
   {
     icon = "__base__/graphics/icons/roboport.png",
-    tint = tint
+    -- -- tint = tint
   },
   {
     icon = "__base__/graphics/icons/substation.png",
     scale = 0.5,
     shift = { 60, 60 },
-    tint = tint,
+    -- -- tint = tint,
   }
 }
 entity.name           = name
@@ -59,7 +59,7 @@ local combined_substation                  = mklv_combined_entity("electric-pole
 --   wire = { copper = { 1.35, -1.75 } }
 -- } }
 combined_substation.fast_replaceable_group = entity.fast_replaceable_group
-combined_substation.pictures.layers[1].tint = tint
+-- -- combined_substation.pictures.layers[1].tint = tint
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
@@ -69,18 +69,19 @@ item.icons = {
     icon = "__base__/graphics/icons/roboport.png",
     scale = 1.7,
     shift = { 0, 24 },
-    tint = tint
+    -- -- tint = tint
   },
   {
     icon = "__base__/graphics/icons/substation.png",
     scale = 1.2,
     shift = { 80, -32 },
-    tint = tint,
+    -- -- tint = tint,
   },
 }
 item.name = name
-item.order = "c[signal]-a[roboport]amu1"
+item.order = "c[signal]-a[roboport]am1"
 item.place_result = name
+-- TODO wire reach should match substation charging
 
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
@@ -103,8 +104,8 @@ recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.nauvis }
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
 remnants.name = name .. "-remnants"
-remnants.animation[1].tint = tint
-remnants.animation[2].tint = tint
+-- -- remnants.animation[1].tint = tint
+-- -- remnants.animation[2].tint = tint
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["logistic-robotics"])
@@ -115,12 +116,20 @@ technology.effects = {
     recipe = name
   },
 }
-technology.icons = { {
-  icon = "__base__/graphics/technology/logistic-robotics.png",
-  icon_size = 256,
-  tint = tint,
-  -- TODO: overlay with substation icon
-} }
+technology.icons = {
+  {
+    icon = "__base__/graphics/technology/electric-energy-distribution-2.png",
+    icon_size = 256,
+    scale = 0.4,
+    shift = { 64, -24 },
+  },
+  {
+    icon = "__base__/graphics/technology/logistic-robotics.png",
+    icon_size = 256,
+    scale = 0.425,
+    shift = { 0, 48 },
+  },
+}
 technology.name = name
 technology.prerequisites = {
   "logistic-system",
