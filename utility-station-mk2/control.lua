@@ -33,19 +33,14 @@ local function build(event)
   -- game.players[1].print("build")
 
   if entities[event.entity.name] then
-    -- game.players[1].print("substation")
     build_entity(event, "mklv-substation-mk2-combined")
   end
-  -- game.players[1].print("event " .. event.entity.name)
-
 
   if entities_l[event.entity.name] then
-    -- game.players[1].print("lightning")
     build_entity(event, "lightning-collector-combined")
   end
 
   if entities_r[event.entity.name] then
-    -- game.players[1].print("radar")
     build_entity(event, "mklv-radar-mk2-combined")
   end
 end
@@ -54,7 +49,6 @@ local function destroy_entity(event, name)
   local e = event.entity
   local x = e.position.x
   local y = e.position.y
-  -- game.players[1].print("destroy_entity " .. name .. e.quality.level .. e.quality.name)
   local entity = e.surface.find_entity({ name = name, quality = e.quality.name }, { x, y })
   if entity ~= nil then
     entity.destroy()
@@ -88,7 +82,6 @@ end
 script.on_event(defines.events.on_built_entity, build, filters)
 script.on_event(defines.events.on_robot_built_entity, build, filters)
 
--- script.on_event(defines.events.on_preplayer_mined_item, destroy, filters)
 script.on_event(defines.events.on_entity_died, destroy, filters)
 script.on_event(defines.events.on_player_mined_entity, destroy, filters)
 script.on_event(defines.events.on_robot_pre_mined, destroy, filters)

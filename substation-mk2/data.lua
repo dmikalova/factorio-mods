@@ -35,7 +35,7 @@ local recipe = table.deepcopy(data.raw.recipe["substation"])
 
 recipe.category = "electromagnetics"
 recipe.name = name
-recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.nauvis }
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.aquilo }
 
 recipe.ingredients = {
   { type = "item", name = "substation",          amount = 1 },

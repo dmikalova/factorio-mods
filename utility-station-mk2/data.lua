@@ -10,28 +10,17 @@ local tint_l               = mklv_consts.tints.yellow
 local tint_r               = mklv_consts.tints.pink
 local tint_rl              = mklv_consts.tints.purple
 
---[[ Overview
-
-Adds Utility Station MK2 that combines the functions of Roboports and Substations; and optionally Lightning Collector or Radar:
-
-- Assembled in a biochamber on vulcanis
-- -l, -r, and -rl variants with Lightning Collector, Radar, and both
--- TODO writeup details
-
-]]             --
-
 --[[ Entity ]] --
-local entity                     = table.deepcopy(data.raw["roboport"]
+local entity                                                = table.deepcopy(data.raw["roboport"]
   ["mklv-utility-station"])
 
-entity.circuit_wire_max_distance = 30
-entity.collision_box             = { { -0.85, -0.85 }, { 0.85, 0.85 } }
-entity.minable.result            = name
-entity.selection_box             = { { -1, -1 }, { 1, 1 } }
-entity.name                      = name
-entity.next_upgrade              = nil
-entity.corpse                    = name .. "-remnants"
-
+entity.circuit_wire_max_distance                            = 30
+entity.collision_box                                        = { { -0.85, -0.85 }, { 0.85, 0.85 } }
+entity.corpse                                               = name .. "-remnants"
+entity.minable.result                                       = name
+entity.name                                                 = name
+entity.next_upgrade                                         = nil
+entity.selection_box                                        = { { -1, -1 }, { 1, 1 } }
 
 entity.base_animation.scale                                 = 0.25
 entity.base_animation.shift                                 = { -0.32, -1 }
@@ -69,9 +58,12 @@ local connection_points_scale                               = 0.5
 entity.circuit_connector.points                             = {
   shadow = {
     -- copper = { 4.25, 0.25 },
-    copper = { 4.25, 0.25 * connection_points_scale - 0.5 },
-    green = { 3.875 * 0.5, 0.25 * connection_points_scale - 0.5 },
-    red = { 4.71875 * 0.5, 0.28125 * connection_points_scale - 0.5 }
+    -- copper = { 4.25, 0.25 * connection_points_scale - 0.5 },
+    -- green = { 3.875 * 0.5, 0.25 * connection_points_scale - 0.5 },
+    -- red = { 4.71875 * 0.5, 0.28125 * connection_points_scale - 0.5 }
+    copper = { 4.25, -0.375 },
+    green = { 3.875 * 0.5, -0.375 },
+    red = { 4.71875 * 0.5, -0.359375 },
   },
   wire = {
     -- copper = { 0, -2.6875 },
@@ -85,6 +77,16 @@ entity.circuit_connector.points                             = {
 local entity_l                                = table.deepcopy(entity)
 entity_l.name                                 = name_l
 entity_l.minable.result                       = name_l
+entity_l.base_animation.tint                  = tint_l
+entity_l.base_patch.tint                      = tint_l
+entity_l.base.layers[1].tint                  = tint_l
+entity_l.door_animation_down.tint             = tint_l
+entity_l.door_animation_up.tint               = tint_l
+
+entity_l.icons                                = { {
+  icon = "__base__/graphics/icons/roboport.png",
+  tint = tint_l
+} }
 entity_l.surface_conditions                   = { mklv_consts.surface_conditions
     .magnetic_field
     .fulgora }
@@ -92,10 +94,30 @@ entity_l.surface_conditions                   = { mklv_consts.surface_conditions
 local entity_r                                = table.deepcopy(entity)
 entity_r.name                                 = name_r
 entity_r.minable.result                       = name_r
+entity_r.base_animation.tint                  = tint_r
+entity_r.base_patch.tint                      = tint_r
+entity_r.base.layers[1].tint                  = tint_r
+entity_r.door_animation_down.tint             = tint_r
+entity_r.door_animation_up.tint               = tint_r
+
+entity_r.icons                                = { {
+  icon = "__base__/graphics/icons/roboport.png",
+  tint = tint_r
+} }
 
 local entity_rl                               = table.deepcopy(entity_r)
 entity_rl.name                                = name_rl
 entity_rl.minable.result                      = name_rl
+entity_rl.base_animation.tint                 = tint_rl
+entity_rl.base_patch.tint                     = tint_rl
+entity_rl.base.layers[1].tint                 = tint_rl
+entity_rl.door_animation_down.tint            = tint_rl
+entity_rl.door_animation_up.tint              = tint_rl
+
+entity_rl.icons                               = { {
+  icon = "__base__/graphics/icons/roboport.png",
+  tint = tint_rl
+} }
 entity_rl.surface_conditions                  = { mklv_consts.surface_conditions
     .magnetic_field
     .fulgora }
@@ -124,7 +146,7 @@ combined_substation.connection_points         = {
   {
     shadow = {
       -- copper = { 4.15625, 0.28125 },
-      copper = { 4.15625, 0.28125 * connection_points_scale - 0.5 },
+      copper = { 4.15625, -0.359375 },
       green = { 4.5, 0.65625 },
       red = { 3.4375, -0.09375 }
     },
@@ -138,7 +160,7 @@ combined_substation.connection_points         = {
   {
     shadow = {
       -- copper = { 4.15625, 0.28125 },
-      copper = { 4.15625, 0.28125 * connection_points_scale - 0.5 },
+      copper = { 4.15625, -0.359375 },
       green = { 3.96875, 0.8125 },
       red = { 3.96875, -0.25 }
     },
@@ -152,7 +174,7 @@ combined_substation.connection_points         = {
   {
     shadow = {
       -- copper = { 4.15625, 0.28125 },
-      copper = { 4.15625, 0.28125 * connection_points_scale - 0.5 },
+      copper = { 4.15625, -0.359375 },
       green = { 3.46875, 0.625 },
       red = { 4.5, -0.09375 }
     },

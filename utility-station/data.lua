@@ -1,114 +1,78 @@
--- -- executes pineapple only when the pizza mod is active
--- if mods["pizza"] then
---   pineapple()
--- end
-
--- print("Hello, world!")
--- for k, v in pairs(original) do
--- end
--- print(game.entity_protoypes["radar"])
-
-
-
 local mklv_consts = require("__mklv-lib__.consts")
 local mklv_combined_entity = require("__mklv-lib__/combined-entity")
 
 local name = "mklv-utility-station"
--- local tint = mklv_consts.tints.pink
-
---[[ Overview
-
-Adds a Utility Station that combines the functions of a Roboport and Substation, and optionally Lightning Collector or Radar:
-
-- Assembled in an electromagnetic plant on Nauvis
-
-]]             --
 
 --[[ Entity ]] --
-local entity          = table.deepcopy(data.raw["roboport"]["roboport"])
+local entity                     = table.deepcopy(data.raw["roboport"]["roboport"])
+entity.name                      = name
+entity.circuit_wire_max_distance = 25
+entity.minable.result            = name
+entity.corpse                    = name .. "-remnants"
 
-entity.minable.result = name
--- -- entity.door_animation_down.tint = tint
--- -- entity.door_animation_up.tint   = tint
--- -- entity.base_animation.tint      = tint
--- -- entity.base_patch.tint          = tint
--- -- entity.base.layers[1].tint      = tint
-entity.corpse         = name .. "-remnants"
-entity.icons          = {
+entity.icons                     = {
   {
     icon = "__base__/graphics/icons/roboport.png",
-    -- -- tint = tint
   },
   {
     icon = "__base__/graphics/icons/substation.png",
     scale = 0.5,
     shift = { 60, 60 },
-    -- -- tint = tint,
   }
 }
-entity.name           = name
 
--- if mods["mklv-utility-station-mk2"] then
---   entity.next_upgrade = "mklv-utility-station-mk2"
--- end
-
---[[ combined entities]] --
+--[[ Combined Entities ]] --
 local combined_substation                  = mklv_combined_entity("electric-pole", "substation")
--- combined_substation.connection_points       = { {
---   shadow = { copper = { 3.15, -0.6 } },
---   wire = { copper = { 1.35, -1.75 } }
--- } }
 combined_substation.fast_replaceable_group = entity.fast_replaceable_group
--- -- combined_substation.pictures.layers[1].tint = tint
+entity.circuit_connector.points            = combined_substation.connection_points[1]
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
+
+item.name = name
+item.order = "c[signal]-a[roboport]am1"
+item.place_result = name
 
 item.icons = {
   {
     icon = "__base__/graphics/icons/roboport.png",
     scale = 1.7,
     shift = { 0, 24 },
-    -- -- tint = tint
   },
   {
     icon = "__base__/graphics/icons/substation.png",
     scale = 1.2,
     shift = { 80, -32 },
-    -- -- tint = tint,
   },
 }
-item.name = name
-item.order = "c[signal]-a[roboport]am1"
-item.place_result = name
--- TODO wire reach should match substation charging
 
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
-recipe.name = name
 recipe.category = "organic"
+recipe.name = name
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanis }
+
 recipe.ingredients = {
   { type = "item", name = "roboport",   amount = 1 },
   { type = "item", name = "substation", amount = 1 },
-  { type = "item", name = "wood",       amount = 5 },
   { type = "item", name = "raw-fish",   amount = 5 },
+  { type = "item", name = "wood",       amount = 5 },
 }
 recipe.results = { {
   amount = 1,
   name = name,
   type = "item",
 } }
-recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanis }
 
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
 remnants.name = name .. "-remnants"
--- -- remnants.animation[1].tint = tint
--- -- remnants.animation[2].tint = tint
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["logistic-robotics"])
+
+technology.name = name
 
 technology.effects = {
   {
@@ -130,10 +94,10 @@ technology.icons = {
     shift = { 0, 48 },
   },
 }
-technology.name = name
 technology.prerequisites = {
-  "logistic-system",
+  "biochamber",
   "electric-energy-distribution-2",
+  "logistic-system",
 }
 technology.unit = {
   count = 15000,

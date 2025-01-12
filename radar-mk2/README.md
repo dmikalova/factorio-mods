@@ -9,7 +9,7 @@ Check out my other chunk aligned mods:
 - [Roboport MK2](https://mods.factorio.com/mod/mklv-roboport-mk2): 2 chunk coverage at normal and increased charging speed at legendary
 - [Substation MK2](https://mods.factorio.com/mod/mklv-substation-mk2): full chunk coverage at legendary
 - [Utility Station](https://mods.factorio.com/mod/mklv-utility-station): Combine Roboports and Substations into a single 4x4 structure
-- [Utility Station MK2](https://mods.factorio.com/mod/mklv-utility-station-mk2): Combine Roboports, Substations, and optionally Radars or Lightning Collectors into a single 2x2 structure
+- [Utility Station MK2](https://mods.factorio.com/mod/mklv-utility-station-mk2): Combine Roboports and Substations; and optionally Radars or Lightning Collectors into a single 2x2 structure
 
 ## Overview
 

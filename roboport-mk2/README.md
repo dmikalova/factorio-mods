@@ -9,7 +9,7 @@ Check out my other chunk aligned mods:
 - [Radar MK2](https://mods.factorio.com/mod/mklv-radar-mk2): 64x64 chunk coverage at legendary
 - [Substation MK2](https://mods.factorio.com/mod/mklv-substation-mk2): full chunk coverage at legendary
 - [Utility Station](https://mods.factorio.com/mod/mklv-utility-station): Combine Roboports and Substations into a single 4x4 structure
-- [Utility Station MK2](https://mods.factorio.com/mod/mklv-utility-station-mk2): Combine Roboports, Substations, and optionally Radars or Lightning Collectors into a single structure for the ultimate grid alignment
+- [Utility Station MK2](https://mods.factorio.com/mod/mklv-utility-station-mk2): Combine Roboports and Substations; and optionally Radars or Lightning Collectors into a single 2x2 structure
 
 ## Overview
 

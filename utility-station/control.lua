@@ -20,10 +20,8 @@ local function build(event)
   -- game.players[1].print("build")
 
   if entities[event.entity.name] then
-    -- game.players[1].print("substation")
     build_entity(event, "substation-combined")
   end
-  -- game.players[1].print("event " .. event.entity.name)
 end
 
 local function destroy_entity(event, name)
@@ -55,7 +53,6 @@ end
 script.on_event(defines.events.on_built_entity, build, filters)
 script.on_event(defines.events.on_robot_built_entity, build, filters)
 
--- script.on_event(defines.events.on_preplayer_mined_item, destroy, filters)
 script.on_event(defines.events.on_entity_died, destroy, filters)
 script.on_event(defines.events.on_player_mined_entity, destroy, filters)
 script.on_event(defines.events.on_robot_pre_mined, destroy, filters)
