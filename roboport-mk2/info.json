@@ -1,10 +1,10 @@
 {
   "author": "dmikalova",
-  "dependencies": ["base >= 2.0.0", "mklv-lib", "quality"],
-  "description": "Adds Roboport MK2 with larger coverage area and increased charging capacity. Normal quality is 22, and legendary 32 for chunk coverage.",
+  "dependencies": ["base >= 2.0.0", "mklv-lib", "quality", "space-age"],
+  "description": "Adds Roboport MK2 with larger coverage area and increased charging capacity.",
   "factorio_version": "2.0",
   "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-roboport-mk2",
   "title": "MKLV Roboport MK2",
-  "version": "0.1.0"
+  "version": "1.0.0"
 }

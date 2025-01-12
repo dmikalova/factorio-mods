@@ -3,19 +3,6 @@ local mklv_consts = require("__mklv-lib__.consts")
 local name = "mklv-roboport-mk2"
 local tint = mklv_consts.tints.acid
 
---[[ Overview
-
-Adds a Roboport MK2 that can be chunk aligned in a 64x64 grid:
-- Increases the supply area from 50x50 to 64x64
-- Increases the construction area from 110x110 to 138x138
-- Increases the radar range from 2 to 4
-- Increases the robot and items slots from 7 to 10
-- Increases the energy stats from 1x to 2x
-- Increases the number of robot charging slots with quality from 11 at normal to 16 at legendary
-- Assembled in Cryogenic Lab on Fulgora
-
-]]             --
-
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["roboport"]["roboport"])
 

@@ -87,19 +87,19 @@ item.place_result = name
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
 recipe.name = name
-recipe.category = "electromagnetic"
+recipe.category = "organic"
 recipe.ingredients = {
+  { type = "item", name = "roboport",   amount = 1 },
+  { type = "item", name = "substation", amount = 1 },
   { type = "item", name = "wood",       amount = 5 },
   { type = "item", name = "raw-fish",   amount = 5 },
-  { type = "item", name = "substation", amount = 1 },
-  { type = "item", name = "roboport",   amount = 1 },
 }
 recipe.results = { {
   amount = 1,
   name = name,
   type = "item",
 } }
-recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.nauvis }
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanis }
 
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])

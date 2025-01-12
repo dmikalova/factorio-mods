@@ -3,44 +3,40 @@ local mklv_consts = require("__mklv-lib__.consts")
 local name = "mklv-substation-mk2"
 local tint = mklv_consts.tints.acid
 
---[[ Overview
-
-Adds a Substation MK2 that can be chunk aligned in a 32x32 grid at legendary quality:
-- Increases the wire distance and supply area at legendary from 28x28 to 32x32
-- Assembled in EM plant on Nauvis
-
-]]             --
-
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["electric-pole"]["substation"])
 
-entity.name = name
-entity.minable.result = name
 entity.maximum_wire_distance = 22
+entity.minable.result = name
+entity.name = name
+entity.pictures.layers[1].tint = tint
+entity.pictures.layers[2].tint = tint
 entity.supply_area_distance = 11
+
 entity.icons = { {
   icon = "__base__/graphics/icons/substation.png",
   tint = tint,
 } }
-entity.pictures.layers[1].tint = tint
-entity.pictures.layers[2].tint = tint
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["substation"])
+
+item.name = name
+item.order = "a[energy]-m[substation]"
+item.place_result = name
 
 item.icons = { {
   icon = "__base__/graphics/icons/substation.png",
   tint = tint
 } }
-item.name = name
-item.order = "a[energy]-m[substation]"
-item.place_result = name
 
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["substation"])
 
-recipe.name = name
 recipe.category = "electromagnetics"
+recipe.name = name
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.nauvis }
+
 recipe.ingredients = {
   { type = "item", name = "substation",          amount = 1 },
   { type = "item", name = "efficiency-module-3", amount = 5 },
@@ -51,17 +47,16 @@ recipe.results = { {
   name = name,
   type = "item",
 } }
-recipe.surface_conditions = {
-  mklv_consts.surface_conditions.pressure.nauvis,
-}
 
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["substation-remnants"])
-remnants.name = name .. "-remnants"
 remnants.animation[1].tint = tint
+remnants.name = name .. "-remnants"
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["electric-energy-distribution-2"])
+
+technology.name = name
 
 technology.effects = { {
   type = "unlock-recipe",
@@ -72,14 +67,13 @@ technology.icons = { {
   icon_size = 256,
   tint = tint,
 } }
-technology.name = name
 technology.prerequisites = {
   "efficiency-module-3",
   "electric-energy-distribution-2",
   "electromagnetic-plant",
 }
 technology.unit = {
-  count = 10000,
+  count = 15000,
   ingredients = {
     { "automation-science-pack",      1 },
     { "logistic-science-pack",        1 },
