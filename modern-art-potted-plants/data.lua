@@ -1,12 +1,23 @@
 local load = require("__mklv-modern-art-lib__.load")
 
+local jellynut = "wood"
+local tree = "wood"
+local yumako = "wood"
+
+if mods["space-age"] then
+  jellynut = "jellynut-seed"
+  tree = "tree-seed"
+  yumako = "yumako-seed"
+end
+
+
 load({
   imagepath = "__mklv-modern-art-potted-plants__/graphics/images/",
   animpath = "__mklv-modern-art-potted-plants__/graphics/animations/",
   mod_name = "potted-plants",
   images = {
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 0",
       name = "potted-plant-00",
@@ -14,7 +25,7 @@ load({
       size = { 320, 470 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 1",
       name = "potted-plant-01",
@@ -22,7 +33,7 @@ load({
       size = { 320, 386 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 2",
       name = "potted-plant-02",
@@ -30,7 +41,7 @@ load({
       size = { 320, 397 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 3",
       name = "potted-plant-03",
@@ -38,7 +49,7 @@ load({
       size = { 320, 366 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 4",
       name = "potted-plant-04",
@@ -46,7 +57,7 @@ load({
       size = { 320, 371 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 5",
       name = "potted-plant-05",
@@ -54,7 +65,7 @@ load({
       size = { 320, 417 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 6",
       name = "potted-plant-06",
@@ -62,7 +73,7 @@ load({
       size = { 320, 427 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 7",
       name = "potted-plant-07",
@@ -70,7 +81,7 @@ load({
       size = { 320, 415 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 8",
       name = "potted-plant-08",
@@ -78,7 +89,7 @@ load({
       size = { 320, 552 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 9",
       name = "potted-plant-09",
@@ -86,7 +97,7 @@ load({
       size = { 320, 612 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 10",
       name = "potted-plant-10",
@@ -94,7 +105,7 @@ load({
       size = { 320, 448 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 11",
       name = "potted-plant-11",
@@ -102,7 +113,7 @@ load({
       size = { 320, 387 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 12",
       name = "potted-plant-12",
@@ -110,7 +121,7 @@ load({
       size = { 320, 352 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 13",
       name = "potted-plant-13",
@@ -118,7 +129,7 @@ load({
       size = { 320, 582 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 14",
       name = "potted-plant-14",
@@ -126,7 +137,7 @@ load({
       size = { 320, 328 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 15",
       name = "potted-plant-15",
@@ -134,7 +145,7 @@ load({
       size = { 320, 531 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 16",
       name = "potted-plant-16",
@@ -142,7 +153,7 @@ load({
       size = { 320, 342 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 17",
       name = "potted-plant-17",
@@ -150,7 +161,7 @@ load({
       size = { 320, 346 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 18",
       name = "potted-plant-18",
@@ -158,7 +169,7 @@ load({
       size = { 320, 413 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 19",
       name = "potted-plant-19",
@@ -166,7 +177,7 @@ load({
       size = { 320, 395 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 20",
       name = "potted-plant-20",
@@ -174,7 +185,7 @@ load({
       size = { 320, 318 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 21",
       name = "potted-plant-21",
@@ -182,7 +193,7 @@ load({
       size = { 320, 359 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 22",
       name = "potted-plant-22",
@@ -190,7 +201,7 @@ load({
       size = { 320, 399 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 23",
       name = "potted-plant-23",
@@ -198,7 +209,7 @@ load({
       size = { 320, 374 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 24",
       name = "potted-plant-24",
@@ -206,7 +217,7 @@ load({
       size = { 320, 330 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 25",
       name = "potted-plant-25",
@@ -214,7 +225,7 @@ load({
       size = { 320, 336 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 26",
       name = "potted-plant-26",
@@ -222,7 +233,7 @@ load({
       size = { 320, 344 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 27",
       name = "potted-plant-27",
@@ -230,7 +241,7 @@ load({
       size = { 320, 346 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 28",
       name = "potted-plant-28",
@@ -238,7 +249,7 @@ load({
       size = { 320, 317 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 29",
       name = "potted-plant-29",
@@ -246,7 +257,7 @@ load({
       size = { 320, 336 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 30",
       name = "potted-plant-30",
@@ -254,7 +265,7 @@ load({
       size = { 320, 398 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 31",
       name = "potted-plant-31",
@@ -262,7 +273,7 @@ load({
       size = { 320, 427 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 32",
       name = "potted-plant-32",
@@ -270,7 +281,7 @@ load({
       size = { 320, 403 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 33",
       name = "potted-plant-33",
@@ -278,7 +289,7 @@ load({
       size = { 320, 353 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 34",
       name = "potted-plant-34",
@@ -286,7 +297,7 @@ load({
       size = { 320, 461 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 35",
       name = "potted-plant-35",
@@ -294,7 +305,7 @@ load({
       size = { 320, 347 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 36",
       name = "potted-plant-36",
@@ -302,7 +313,7 @@ load({
       size = { 320, 464 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 37",
       name = "potted-plant-37",
@@ -310,7 +321,7 @@ load({
       size = { 320, 372 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 38",
       name = "potted-plant-38",
@@ -318,7 +329,7 @@ load({
       size = { 320, 458 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 39",
       name = "potted-plant-39",
@@ -326,7 +337,7 @@ load({
       size = { 320, 334 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 40",
       name = "potted-plant-40",
@@ -334,7 +345,7 @@ load({
       size = { 320, 337 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 41",
       name = "potted-plant-41",
@@ -342,7 +353,7 @@ load({
       size = { 320, 426 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 42",
       name = "potted-plant-42",
@@ -350,7 +361,7 @@ load({
       size = { 320, 451 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 43",
       name = "potted-plant-43",
@@ -358,7 +369,7 @@ load({
       size = { 320, 329 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 44",
       name = "potted-plant-44",
@@ -366,7 +377,7 @@ load({
       size = { 320, 364 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 45",
       name = "potted-plant-45",
@@ -374,7 +385,7 @@ load({
       size = { 320, 390 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 46",
       name = "potted-plant-46",
@@ -382,7 +393,7 @@ load({
       size = { 320, 354 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 47",
       name = "potted-plant-47",
@@ -390,7 +401,7 @@ load({
       size = { 320, 397 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 48",
       name = "potted-plant-48",
@@ -398,7 +409,7 @@ load({
       size = { 320, 350 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 49",
       name = "potted-plant-49",
@@ -406,7 +417,7 @@ load({
       size = { 320, 449 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 50",
       name = "potted-plant-50",
@@ -414,7 +425,7 @@ load({
       size = { 320, 358 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 51",
       name = "potted-plant-51",
@@ -422,7 +433,7 @@ load({
       size = { 320, 340 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 52",
       name = "potted-plant-52",
@@ -430,7 +441,7 @@ load({
       size = { 320, 333 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 53",
       name = "potted-plant-53",
@@ -438,7 +449,7 @@ load({
       size = { 320, 449 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 54",
       name = "potted-plant-54",
@@ -446,7 +457,7 @@ load({
       size = { 320, 360 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 55",
       name = "potted-plant-55",
@@ -454,7 +465,7 @@ load({
       size = { 320, 438 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 56",
       name = "potted-plant-56",
@@ -462,7 +473,7 @@ load({
       size = { 320, 477 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 57",
       name = "potted-plant-57",
@@ -470,7 +481,7 @@ load({
       size = { 320, 391 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 58",
       name = "potted-plant-58",
@@ -478,7 +489,7 @@ load({
       size = { 320, 335 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 59",
       name = "potted-plant-59",
@@ -486,7 +497,7 @@ load({
       size = { 320, 415 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 60",
       name = "potted-plant-60",
@@ -494,7 +505,7 @@ load({
       size = { 320, 393 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 61",
       name = "potted-plant-61",
@@ -502,7 +513,7 @@ load({
       size = { 320, 325 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 62",
       name = "potted-plant-62",
@@ -510,7 +521,7 @@ load({
       size = { 320, 383 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 63",
       name = "potted-plant-63",
@@ -518,7 +529,7 @@ load({
       size = { 320, 335 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 64",
       name = "potted-plant-64",
@@ -526,7 +537,7 @@ load({
       size = { 320, 446 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 65",
       name = "potted-plant-65",
@@ -534,7 +545,7 @@ load({
       size = { 320, 825 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 66",
       name = "potted-plant-66",
@@ -542,7 +553,7 @@ load({
       size = { 320, 367 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 67",
       name = "potted-plant-67",
@@ -550,7 +561,7 @@ load({
       size = { 320, 363 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 68",
       name = "potted-plant-68",
@@ -558,7 +569,7 @@ load({
       size = { 320, 350 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 69",
       name = "potted-plant-69",
@@ -566,7 +577,7 @@ load({
       size = { 320, 396 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 70",
       name = "potted-plant-70",
@@ -574,7 +585,7 @@ load({
       size = { 320, 347 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 71",
       name = "potted-plant-71",
@@ -582,7 +593,7 @@ load({
       size = { 320, 372 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 72",
       name = "potted-plant-72",
@@ -590,7 +601,7 @@ load({
       size = { 320, 381 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 73",
       name = "potted-plant-73",
@@ -598,7 +609,7 @@ load({
       size = { 320, 403 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 74",
       name = "potted-plant-74",
@@ -606,7 +617,7 @@ load({
       size = { 320, 436 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 75",
       name = "potted-plant-75",
@@ -614,7 +625,7 @@ load({
       size = { 320, 448 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 76",
       name = "potted-plant-76",
@@ -622,7 +633,7 @@ load({
       size = { 320, 410 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 77",
       name = "potted-plant-77",
@@ -630,7 +641,7 @@ load({
       size = { 320, 453 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 78",
       name = "potted-plant-78",
@@ -638,7 +649,7 @@ load({
       size = { 320, 419 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 79",
       name = "potted-plant-79",
@@ -646,7 +657,7 @@ load({
       size = { 320, 408 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 80",
       name = "potted-plant-80",
@@ -654,7 +665,7 @@ load({
       size = { 320, 376 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 81",
       name = "potted-plant-81",
@@ -662,7 +673,7 @@ load({
       size = { 320, 377 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 82",
       name = "potted-plant-82",
@@ -670,7 +681,7 @@ load({
       size = { 320, 371 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 83",
       name = "potted-plant-83",
@@ -678,7 +689,7 @@ load({
       size = { 320, 415 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 84",
       name = "potted-plant-84",
@@ -686,7 +697,7 @@ load({
       size = { 320, 328 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 85",
       name = "potted-plant-85",
@@ -694,7 +705,7 @@ load({
       size = { 320, 396 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 86",
       name = "potted-plant-86",
@@ -702,7 +713,7 @@ load({
       size = { 320, 401 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 87",
       name = "potted-plant-87",
@@ -710,7 +721,7 @@ load({
       size = { 320, 322 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 88",
       name = "potted-plant-88",
@@ -718,7 +729,7 @@ load({
       size = { 320, 356 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 89",
       name = "potted-plant-89",
@@ -726,7 +737,7 @@ load({
       size = { 320, 358 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 90",
       name = "potted-plant-90",
@@ -734,7 +745,7 @@ load({
       size = { 320, 393 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 91",
       name = "potted-plant-91",
@@ -742,7 +753,7 @@ load({
       size = { 320, 317 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 92",
       name = "potted-plant-92",
@@ -750,7 +761,7 @@ load({
       size = { 320, 324 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 93",
       name = "potted-plant-93",
@@ -758,7 +769,7 @@ load({
       size = { 320, 299 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 94",
       name = "potted-plant-94",
@@ -766,7 +777,7 @@ load({
       size = { 320, 405 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 95",
       name = "potted-plant-95",
@@ -774,7 +785,7 @@ load({
       size = { 320, 437 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 96",
       name = "potted-plant-96",
@@ -782,7 +793,7 @@ load({
       size = { 320, 345 },
     },
     {
-      ingredients = { { type = "item", name = "jellynut-seed", amount = 1 } },
+      ingredients = { { type = "item", name = jellynut, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 97",
       name = "potted-plant-97",
@@ -790,7 +801,7 @@ load({
       size = { 320, 389 },
     },
     {
-      ingredients = { { type = "item", name = "yumako-seed", amount = 1 } },
+      ingredients = { { type = "item", name = yumako, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 98",
       name = "potted-plant-98",
@@ -798,7 +809,7 @@ load({
       size = { 320, 442 },
     },
     {
-      ingredients = { { type = "item", name = "tree-seed", amount = 1 } },
+      ingredients = { { type = "item", name = tree, amount = 1 } },
       localised_description = "",
       localised_name = "Plant 99",
       name = "potted-plant-99",

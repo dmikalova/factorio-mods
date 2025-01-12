@@ -3,50 +3,43 @@ local mklv_consts = require("__mklv-lib__.consts")
 local name = "mklv-radar-mk2"
 local tint = mklv_consts.tints.acid
 
---[[ Overview
-
-Adds a radar MK2 that can be better chunk aligned:
-- Increases the nearby sector scan from 7x7 to 9x9 chunks (must be odd)
-- Increases the sector scanning from 29x29 to 33x33 chunks (must be odd)
-- Energy usage doubled from 300kW to 600kW resulting in faster scans
-- Sector scan energy decreased from 10MW to 8MW
-- Assembled in Foundry on Gleba
-
-]]             --
-
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["radar"]["radar"])
 
-entity.name = name
-entity.minable.result = name
-entity.energy_usage = "600kW"
+entity.connects_to_other_radars = false
+entity.corpse = name .. "-remnants"
 entity.energy_per_sector = "8MJ"
+entity.energy_usage = "600kW"
+entity.max_distance_of_nearby_sector_revealed = 4 -- chunk that radar is centered on ±4 chunks + 2 for each quality level
+entity.max_distance_of_sector_revealed = 27       -- chunk that radar is centered on ±27 chunks + 2 for each quality level
+entity.minable.result = name
+entity.name = name
+entity.pictures.layers[1].tint = tint
+
 entity.icons = { {
   icon = "__base__/graphics/icons/radar.png",
   tint = tint,
 } }
-entity.pictures.layers[1].tint = tint
--- TODO: account for quality increasing  range
-entity.max_distance_of_sector_revealed = 16
-entity.max_distance_of_nearby_sector_revealed = 8
-entity.connects_to_other_radars = false
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["radar"])
+
+item.name = name
+item.order = "d[radar]-m[radar]"
+item.place_result = name
 
 item.icons = { {
   icon = "__base__/graphics/icons/radar.png",
   tint = tint
 } }
-item.name = name
-item.order = "d[radar]-m[radar]"
-item.place_result = name
 
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["radar"])
 
+recipe.category = "metallurgy"
 recipe.name = name
-recipe.category_id = "metallurgy"
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.gleba }
+
 recipe.ingredients = {
   { type = "item", name = "radar",          amount = 1 },
   { type = "item", name = "tungsten-plate", amount = 5 },
@@ -56,12 +49,10 @@ recipe.results = { {
   name = name,
   type = "item",
 } }
-recipe.surface_conditions = {
-  mklv_consts.surface_conditions.pressure.gleba,
-}
 
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["radar-remnants"])
+
 remnants.name = name .. "-remnants"
 remnants.animation[1].tint = tint
 
@@ -80,6 +71,7 @@ technology.icons = { {
 technology.name = name
 technology.prerequisites = {
   "radar",
+  "tungsten-steel",
 }
 technology.unit = {
   count = 10000,

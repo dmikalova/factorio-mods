@@ -1,14 +1,14 @@
-local mklv_consts                = require("__mklv-lib__.consts")
-local mklv_combined_entity       = require("__mklv-lib__/combined-entity")
+local mklv_consts          = require("__mklv-lib__.consts")
+local mklv_combined_entity = require("__mklv-lib__/combined-entity")
 
-local name                       = "mklv-utility-station-mk2"
-local name_l                     = name .. "-l"
-local name_r                     = name .. "-r"
-local name_rl                    = name .. "-rl"
-local tint                       = mklv_consts.tints.acid
-local tint_l                     = mklv_consts.tints.yellow
-local tint_r                     = mklv_consts.tints.pink
-local tint_rl                    = mklv_consts.tints.purple
+local name                 = "mklv-utility-station-mk2"
+local name_l               = name .. "-l"
+local name_r               = name .. "-r"
+local name_rl              = name .. "-rl"
+local tint                 = mklv_consts.tints.acid
+local tint_l               = mklv_consts.tints.yellow
+local tint_r               = mklv_consts.tints.pink
+local tint_rl              = mklv_consts.tints.purple
 
 --[[ Overview
 
@@ -18,9 +18,9 @@ Adds Utility Station MK2 that combines the functions of Roboports and Substation
 - -l, -r, and -rl variants with Lightning Collector, Radar, and both
 -- TODO writeup details
 
-]] --
+]]             --
 
- --[[ Entity ]] --
+--[[ Entity ]] --
 local entity                     = table.deepcopy(data.raw["roboport"]
   ["mklv-utility-station"])
 
@@ -205,7 +205,7 @@ item.icons = {
     icon = "__base__/graphics/icons/substation.png",
     icon_size = 64,
     scale = icon_others_scale,
-    shift = { 28, -12},
+    shift = { 28, -12 },
     tint = tint,
   },
 }
@@ -221,7 +221,7 @@ table.insert(item_l.icons, {
   icon = "__space-age__/graphics/icons/lightning-collector.png",
   icon_size = 64,
   scale = icon_others_scale,
-  shift = { 18, -12},
+  shift = { 18, -12 },
   tint = tint_l
 })
 item_l.name = name_l
@@ -234,7 +234,7 @@ table.insert(item_r.icons, {
   icon = "__base__/graphics/icons/radar.png",
   icon_size = 64,
   scale = icon_others_scale,
-  shift = { -4, -12},
+  shift = { -4, -12 },
   tint = tint_r
 })
 item_r.name = name_r
@@ -248,7 +248,7 @@ table.insert(item_rl.icons, {
   icon = "__base__/graphics/icons/radar.png",
   icon_size = 64,
   scale = icon_others_scale,
-  shift = { -4, -12},
+  shift = { -4, -12 },
   tint = tint_rl
 })
 item_rl.name = name_rl
@@ -259,7 +259,7 @@ local recipe = table.deepcopy(data.raw.recipe["mklv-utility-station"])
 
 recipe.category = "crafting-with-fluid"
 recipe.name = name
-recipe.category_id = "centrifuging"
+recipe.category = "centrifuging"
 recipe.ingredients = {
   { type = "item",  name = "electric-engine-unit", amount = 10 },
   { type = "item",  name = "uranium-fuel-cell",    amount = 5 },

@@ -87,7 +87,7 @@ item.place_result = name
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
 recipe.name = name
-recipe.category_id = "electromagnetic"
+recipe.category = "electromagnetic"
 recipe.ingredients = {
   { type = "item", name = "wood",       amount = 5 },
   { type = "item", name = "raw-fish",   amount = 5 },

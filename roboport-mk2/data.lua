@@ -5,26 +5,41 @@ local tint = mklv_consts.tints.acid
 
 --[[ Overview
 
-Adds a Roboport Mk2 that can be chunk aligned in a 64x64 grid:
+Adds a Roboport MK2 that can be chunk aligned in a 64x64 grid:
 - Increases the supply area from 50x50 to 64x64
-- Increases the construction construction area from 110x110 to 138x138
+- Increases the construction area from 110x110 to 138x138
 - Increases the radar range from 2 to 4
 - Increases the robot and items slots from 7 to 10
 - Increases the energy stats from 1x to 2x
-- Increases the number of robot charging slots with quality
-- Assembled in cryogenic lab on gleb
+- Increases the number of robot charging slots with quality from 11 at normal to 16 at legendary
+- Assembled in Cryogenic Lab on Fulgora
 
 ]]             --
 
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["roboport"]["roboport"])
 
-entity.minable.result = name
-entity.door_animation_down.tint = tint
-entity.door_animation_up.tint = tint
 entity.base_animation.tint = tint
 entity.base_patch.tint = tint
 entity.base.layers[1].tint = tint
+entity.charging_station_count_affected_by_quality = true
+entity.construction_radius = 69
+entity.corpse = name .. "-remnants"
+entity.door_animation_down.tint = tint
+entity.door_animation_up.tint = tint
+entity.logistics_radius = 32
+entity.material_slots_count = 10
+entity.minable.result = name
+entity.name = name
+entity.radar_range = 4
+entity.robot_slots_count = 11
+
+entity.charging_energy = "1MW"
+entity.energy_source.buffer_capacity = "200MJ"
+entity.energy_source.input_flow_limit = "10MW"
+entity.energy_usage = "100kW"
+entity.recharge_minimum = "80MJ"
+
 entity.charging_offsets = {
   -- circle with 16 points of radius 2
   -- top right
@@ -48,41 +63,30 @@ entity.charging_offsets = {
   { -1.414, 1.414 },
   { -0.749, 1.854 },
 }
-entity.charging_station_count_affected_by_quality = true
-entity.construction_radius = 69
-entity.corpse = name .. "-remnants"
 entity.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
   tint = tint
 } }
-entity.logistics_radius = 32
-entity.material_slots_count = 10
-entity.name = name
-entity.radar_range = 4
-entity.robot_slots_count = 10
-
-entity.charging_energy = "1MW"
-entity.energy_source.buffer_capacity = "200MJ"
-entity.energy_source.input_flow_limit = "10MW"
-entity.energy_usage = "100kW"
-entity.recharge_minimum = "80MJ"
 
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
+
+item.name = name
+item.order = "c[signal]-a[roboport]am2"
+item.place_result = name
 
 item.icons = { {
   icon = "__base__/graphics/icons/roboport.png",
   tint = tint
 } }
-item.name = name
-item.order = "c[signal]-a[roboport]am2"
-item.place_result = name
 
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
+recipe.category = "cryogenics"
 recipe.name = name
-recipe.category_id = "cryogenics"
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.fulgora }
+
 recipe.ingredients = {
   { type = "item", name = "roboport",          amount = 1 },
   { type = "item", name = "lithium-plate",     amount = 5 },
@@ -93,18 +97,18 @@ recipe.results = { {
   name = name,
   type = "item",
 } }
-recipe.surface_conditions = {
-  mklv_consts.surface_conditions.pressure.gleba,
-}
 
 --[[ Remnants ]] --
 local remnants = table.deepcopy(data.raw["corpse"]["roboport-remnants"])
-remnants.name = name .. "-remnants"
+
 remnants.animation[1].tint = tint
 remnants.animation[2].tint = tint
+remnants.name = name .. "-remnants"
 
 --[[ Technology ]] --
 local technology = table.deepcopy(data.raw.technology["logistic-robotics"])
+
+technology.name = name
 
 technology.effects = { {
   type = "unlock-recipe",
@@ -115,7 +119,6 @@ technology.icons = { {
   icon_size = 256,
   tint = tint,
 } }
-technology.name = name
 technology.prerequisites = {
   "logistic-system",
   "quantum-processor",

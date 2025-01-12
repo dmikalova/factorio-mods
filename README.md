@@ -21,7 +21,7 @@ Some links that help me with modding:
 
 - [Wiki tutorial](https://wiki.factorio.com/Tutorial:Modding_tutorial)
 - [FMTK: Factorio modding toolkit](https://github.com/justarandomgeek/vscode-factoriomod-debug/blob/current/doc/workspace.md)
-- [Github Actions](https://github.com/TheBrutalX/Factorio-mod-uploader-action/)
+- [Github Actions](https://github.com/TheBrutalX/Factorio-mod-uploader-action/)]
 - [Factorio raw data dump](https://wiki.factorio.com/Data.raw)
 
 Shortcuts:

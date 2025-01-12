@@ -1,6 +1,6 @@
 {
   "author": "dmikalova",
-  "dependencies": ["base >= 2.0.0", "mklv-lib"],
+  "dependencies": ["base >= 2.0.0", "mklv-lib", "space-age"],
   "description": "Adds Radar MK2 with larger coverage area. Normal quality is 22, and legendary 32 for chunk coverage.",
   "factorio_version": "2.0",
   "homepage": "https://github.com/dmikalova/factorio-mods",
