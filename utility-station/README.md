@@ -15,8 +15,8 @@ Check out my other chunk aligned mods:
 
 Adds a Utility Station that combines the functions of a Roboport and Substation, and optionally Lightning Collector or Radar:
 
-- Created by putting an uninteractable Substation under the Roboport - no effect on UPS.
+- Created by putting an uninteractable Substation under Roboport - no effect on UPS.
 - Circuit connections extended reach substations.
-- Due to Factorio limtations the circuit wires may not perfectly align with the substation.
+- Due to Factorio limitations the circuit wires may not perfectly align with the substation.
 - All other properties of a Roboport and Substation are kept the same.
-- Assembled in a Biochamber on Vulcanis with wood and raw fish.
+- Assembled in a Biochamber on Vulcanus with Roboport, Substation, Wood, Raw Fish, and Hot Fluoroketone.

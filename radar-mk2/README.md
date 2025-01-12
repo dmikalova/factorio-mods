@@ -22,4 +22,4 @@ Adds a radar MK2 that can be better chunk aligned:
 - Energy usage doubled from 300kW to 600kW resulting in faster scans
 - Sector scan energy decreased from 10MW to 8MW resulting in more energy efficient scans
 - Does not circuit connect to other radars
-- Assembled in Foundries on Gleba with Tungsten Plates
+- Assembled in Foundries on Gleba with Radar and Tungsten Plates

@@ -105,7 +105,7 @@ return {
         min = 0,
         max = 0,
       },
-      vulcanis = {
+      vulcanus = {
         property = "pressure",
         min = 4000,
         max = 4000,

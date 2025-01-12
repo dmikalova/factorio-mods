@@ -49,15 +49,17 @@ item.icons = {
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
+recipe.autorecycle = false
 recipe.category = "organic"
 recipe.name = name
-recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanis }
+recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanus }
 
 recipe.ingredients = {
-  { type = "item", name = "roboport",   amount = 1 },
-  { type = "item", name = "substation", amount = 1 },
-  { type = "item", name = "raw-fish",   amount = 5 },
-  { type = "item", name = "wood",       amount = 5 },
+  { type = "item",  name = "roboport",         amount = 1 },
+  { type = "item",  name = "substation",       amount = 1 },
+  { type = "item",  name = "raw-fish",         amount = 5 },
+  { type = "item",  name = "wood",             amount = 5 },
+  { type = "fluid", name = "fluoroketone-hot", amount = 25 },
 }
 recipe.results = { {
   amount = 1,
@@ -96,6 +98,7 @@ technology.icons = {
 }
 technology.prerequisites = {
   "biochamber",
+  "cryogenic-plant",
   "electric-energy-distribution-2",
   "logistic-system",
 }

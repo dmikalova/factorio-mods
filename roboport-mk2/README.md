@@ -21,4 +21,4 @@ Adds a Roboport MK2 that can be chunk aligned in a 64x64 grid:
 - Increases the robot and items slots from 7 to 10
 - Increases the energy stats from 1x to 2x
 - Increases the number of robot charging slots with quality from 11 at normal to 16 at legendary
-- Assembled in Cryogenic Labs on Fulgora with Lithium Plates and Quantum Processors
+- Assembled in Cryogenic Labs on Fulgora with Roboport, Lithium Plates, and Quantum Processors
