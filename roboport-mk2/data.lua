@@ -71,7 +71,7 @@ item.icons = { {
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
-recipe.autorecycle = false
+recipe.auto_recycle = false
 recipe.category = "cryogenics"
 recipe.name = name
 recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.fulgora }
