@@ -15,6 +15,7 @@
   "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-utility-station-mk2",
   "package": {
+    "ignore": ["example.png", "thumbnail.png"],
     "no_git_tag": true,
     "sync_portal_details": true
   },

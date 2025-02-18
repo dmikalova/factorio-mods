@@ -1,16 +1,15 @@
 {
   "author": "dmikalova",
-  "dependencies": ["base >= 2.0.0", "mklv-modern-art-lib"],
-  "description": "A Modern Art pack featuring Steven Universe.",
+  "dependencies": ["base >= 2.0.0", "space-age", "demolisher-eggs", "mklv-lib"],
+  "description": "Adds invasive soils which can be placed anywhere on Gleba! Creating it is not so easy though...",
   "factorio_version": "2.0",
   "homepage": "https://github.com/dmikalova/factorio-mods",
-  "license": "apache2",
-  "name": "mklv-modern-art-steven-universe",
+  "name": "mklv-invasive-soils",
   "package": {
     "ignore": ["example.png", "thumbnail.png"],
     "no_git_tag": true,
     "sync_portal_details": true
   },
-  "title": "Modern Art: Steven Universe",
+  "title": "Invasive Soils",
   "version": "1.0.0"
 }

@@ -30,6 +30,12 @@ item.icons = { {
   tint = tint
 } }
 
+-- TODO: custom import from planet
+-- TODO: productivity modules should not be allowed
+-- Roboport mk2 legendary has too many robot slots
+-- TODO: check rocket capacity - substation mk2 is 16
+-- TODO: circuit wire cannot reach full range
+-- TODO: roboport mk2 recharges 21 robots?
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["substation"])
 

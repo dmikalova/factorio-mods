@@ -18,3 +18,5 @@ rm -rf "$MOD_DIR/mklv"*
 # ln -s "$REPO_DIR/modern-art-mangione" "$MOD_DIR/mklv-modern-art-mangione"
 # ln -s "$REPO_DIR/modern-art-potted-plants" "$MOD_DIR/mklv-modern-art-potted-plants"
 # ln -s "$REPO_DIR/modern-art-steven-universe" "$MOD_DIR/mklv-modern-art-steven-universe"
+
+ln -s "$REPO_DIR/invasive-soils" "$MOD_DIR/mklv-invasive-soils"

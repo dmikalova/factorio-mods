@@ -6,6 +6,7 @@
   "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-lib",
   "package": {
+    "ignore": ["example.png", "thumbnail.png"],
     "no_git_tag": true,
     "sync_portal_details": true
   },

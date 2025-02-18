@@ -1,15 +1,12 @@
 {
   "author": "dmikalova",
-  "dependencies": [
-    "base >= 2.0.0",
-    "mklv-lib",
-    "quality"
-  ],
+  "dependencies": ["base >= 2.0.0", "mklv-lib", "quality"],
   "description": "Adds Utility Station which combine the properties of roboports and substations.",
   "factorio_version": "2.0",
   "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-utility-station",
   "package": {
+    "ignore": ["example.png", "thumbnail.png"],
     "no_git_tag": true,
     "sync_portal_details": true
   },

@@ -7,7 +7,7 @@
   "license": "apache2",
   "name": "mklv-modern-art-potted-plants",
   "package": {
-    "ignore": ["graphics/originals/*"],
+    "ignore": ["example.png", "thumbnail.png", "graphics/originals/*"],
     "no_git_tag": true,
     "sync_portal_details": true
   },
