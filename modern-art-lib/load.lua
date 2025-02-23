@@ -16,8 +16,6 @@ local function load(config)
       },
     }
   )
-  -- TODO: recipe.auto_recycle = false
-  -- create images
   -- I'm still mad I have two whole sets of item, entity, recipe instead of just one. Script is twice as long as it should be. Can't figure out how to combine them without redesigning config
   for key, content in pairs(config.images) do
     local imgcontent =
@@ -50,6 +48,7 @@ local function load(config)
     local recipe =
     {
       name = "ma-" .. content.name,
+      auto_recycle = false,
       results = { { type = "item", name = "ma-" .. content.name, amount = 1 } },
       type = "recipe",
       --- User optional variables
@@ -177,6 +176,7 @@ local function load(config)
     local recipe =
     {
       name = "ma-" .. content.name,
+      auto_recycle = false,
       results = { { type = "item", name = "ma-" .. content.name, amount = 1 } },
       type = "recipe",
       --- User optional variables

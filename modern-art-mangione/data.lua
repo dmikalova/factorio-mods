@@ -160,4 +160,5 @@ load({
 	},
 	animations = {},
 	-- TODO: add an animation
+	-- TODO: update new pics
 })

@@ -1,0 +1,25 @@
+{
+  "author": "dmikalova",
+  "dependencies": [
+    "base >= 2.0.0",
+    "space-age",
+    "mklv-lib",
+    "? ammoniafill",
+    "? artifical-tree-soil",
+    "? lavafill",
+    "? mklv-invasive-soils",
+    "? oilfill",
+    "? waterfill-2"
+  ],
+  "description": "Changes artificial and overgrowth soil placement to not overlap each other, making it easier to place economoically.",
+  "factorio_version": "2.0",
+  "homepage": "https://github.com/dmikalova/factorio-mods",
+  "name": "mklv-exclusive-soil-placement",
+  "package": {
+    "ignore": ["example.png", "thumbnail.png"],
+    "no_git_tag": true,
+    "sync_portal_details": true
+  },
+  "title": "Exclusive Soil Placement",
+  "version": "1.0.0"
+}

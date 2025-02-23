@@ -24,6 +24,7 @@ entity.icons = { {
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["radar"])
 
+item.default_import_location = "gleba"
 item.name = name
 item.order = "d[radar]-m[radar]"
 item.place_result = name

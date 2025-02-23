@@ -21,21 +21,18 @@ entity.icons = { {
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["substation"])
 
+item.default_import_location = "aquilo"
 item.name = name
 item.order = "a[energy]-m[substation]"
 item.place_result = name
+item.weight = 20000
 
 item.icons = { {
   icon = "__base__/graphics/icons/substation.png",
   tint = tint
 } }
 
--- TODO: custom import from planet
--- TODO: productivity modules should not be allowed
--- Roboport mk2 legendary has too many robot slots
--- TODO: check rocket capacity - substation mk2 is 16
--- TODO: circuit wire cannot reach full range
--- TODO: roboport mk2 recharges 21 robots?
+-- TODO: roboport mk2 recharges 21 robots? x
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["substation"])
 

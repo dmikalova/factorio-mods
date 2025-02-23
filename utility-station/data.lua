@@ -29,6 +29,7 @@ entity.circuit_connector.points            = combined_substation.connection_poin
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
 
+item.default_import_location = "vulcanus"
 item.name = name
 item.order = "c[signal]-a[roboport]am1"
 item.place_result = name
