@@ -6,7 +6,7 @@
   "homepage": "https://github.com/dmikalova/factorio-mods",
   "name": "mklv-roboport-mk2",
   "package": {
-    "ignore": ["example.png", "thumbnail.png"],
+    "ignore": ["example.png"],
     "no_git_tag": true,
     "sync_portal_details": true
   },

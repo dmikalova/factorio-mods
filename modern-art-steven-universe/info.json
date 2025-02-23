@@ -7,7 +7,7 @@
   "license": "apache2",
   "name": "mklv-modern-art-steven-universe",
   "package": {
-    "ignore": ["example.png", "thumbnail.png"],
+    "ignore": ["example.png"],
     "no_git_tag": true,
     "sync_portal_details": true
   },
