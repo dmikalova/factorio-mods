@@ -32,7 +32,7 @@ item.icons = { {
   tint = tint
 } }
 
--- TODO: roboport mk2 recharges 21 robots? x
+-- TODO: robots all charging on same spot
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["substation"])
 

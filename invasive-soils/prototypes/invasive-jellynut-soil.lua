@@ -13,6 +13,7 @@ tile.minable.result = name
 -- [[ Item ]] --
 local item = table.deepcopy(data.raw.item["overgrowth-jellynut-soil"])
 
+item.default_import_location = "aquilo"
 item.name = name
 item.order = "c[landfill]-ee[" .. name .. "]i"
 item.place_as_tile = {
@@ -64,6 +65,9 @@ item.icons = {
     tint = tint
   },
 }
+
+--[[ Plant ]] --
+table.insert(data.raw.plant["jellystem"].autoplace.tile_restriction, name)
 
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["overgrowth-jellynut-soil"])

@@ -58,7 +58,7 @@ recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanus }
 recipe.ingredients = {
   { type = "item",  name = "roboport",         amount = 1 },
   { type = "item",  name = "substation",       amount = 1 },
-  { type = "item",  name = "raw-fish",         amount = 5 },
+  { type = "item",  name = "raw-fish",         amount = 1 },
   { type = "item",  name = "wood",             amount = 5 },
   { type = "fluid", name = "fluoroketone-hot", amount = 25 },
 }

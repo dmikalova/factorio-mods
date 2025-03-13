@@ -6,8 +6,8 @@ local tint = mklv_consts.tints.acid
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["roboport"]["roboport"])
 
-entity.charging_station_count = 11
-entity.charging_station_count_affected_by_quality = true
+entity.charging_station_count = 16
+-- entity.charging_station_count_affected_by_quality = true
 entity.construction_radius = 69
 entity.corpse = name .. "-remnants"
 entity.logistics_radius = 32

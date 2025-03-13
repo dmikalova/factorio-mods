@@ -16,4 +16,4 @@ Check out my other chunk aligned mods:
 Adds a Substation MK2 that can be chunk aligned in a 32x32 grid at legendary quality:
 
 - Increases the wire distance and supply area at legendary from 28x28 to 32x32
-- Assembled in Electromagnetic Plants on Nauvis with Substation, Superconductors, and Efficiency Module 3s
+- Assembled in Electromagnetic Plants on Aquilo with Substation, Superconductors, and Efficiency Module 3s
