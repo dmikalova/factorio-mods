@@ -80,61 +80,62 @@ entity.circuit_connector.points                             = {
 }
 
 --[[ Variant entities]] --
-local entity_l                                = table.deepcopy(entity)
-entity_l.name                                 = name_l
-entity_l.minable.result                       = name_l
-entity_l.base_animation.tint                  = tint_l
-entity_l.base_patch.tint                      = tint_l
-entity_l.base.layers[1].tint                  = tint_l
-entity_l.door_animation_down.tint             = tint_l
-entity_l.door_animation_up.tint               = tint_l
+local entity_l                    = table.deepcopy(entity)
+entity_l.name                     = name_l
+entity_l.minable.result           = name_l
+entity_l.base_animation.tint      = tint_l
+entity_l.base_patch.tint          = tint_l
+entity_l.base.layers[1].tint      = tint_l
+entity_l.door_animation_down.tint = tint_l
+entity_l.door_animation_up.tint   = tint_l
 
-entity_l.icons                                = { {
+entity_l.icons                    = { {
   icon = "__base__/graphics/icons/roboport.png",
   tint = tint_l
 } }
-entity_l.surface_conditions                   = { mklv_consts.surface_conditions
+entity_l.surface_conditions       = { mklv_consts.surface_conditions
     .magnetic_field
     .fulgora }
 
-local entity_r                                = table.deepcopy(entity)
-entity_r.name                                 = name_r
-entity_r.minable.result                       = name_r
-entity_r.base_animation.tint                  = tint_r
-entity_r.base_patch.tint                      = tint_r
-entity_r.base.layers[1].tint                  = tint_r
-entity_r.door_animation_down.tint             = tint_r
-entity_r.door_animation_up.tint               = tint_r
 
-entity_r.icons                                = { {
+local entity_r                    = table.deepcopy(entity)
+entity_r.name                     = name_r
+entity_r.minable.result           = name_r
+entity_r.base_animation.tint      = tint_r
+entity_r.base_patch.tint          = tint_r
+entity_r.base.layers[1].tint      = tint_r
+entity_r.door_animation_down.tint = tint_r
+entity_r.door_animation_up.tint   = tint_r
+
+entity_r.icons                    = { {
   icon = "__base__/graphics/icons/roboport.png",
   tint = tint_r
 } }
 
-local entity_rl                               = table.deepcopy(entity_r)
-entity_rl.name                                = name_rl
-entity_rl.minable.result                      = name_rl
-entity_rl.base_animation.tint                 = tint_rl
-entity_rl.base_patch.tint                     = tint_rl
-entity_rl.base.layers[1].tint                 = tint_rl
-entity_rl.door_animation_down.tint            = tint_rl
-entity_rl.door_animation_up.tint              = tint_rl
 
-entity_rl.icons                               = { {
+local entity_rl                    = table.deepcopy(entity_r)
+entity_rl.name                     = name_rl
+entity_rl.minable.result           = name_rl
+entity_rl.base_animation.tint      = tint_rl
+entity_rl.base_patch.tint          = tint_rl
+entity_rl.base.layers[1].tint      = tint_rl
+entity_rl.door_animation_down.tint = tint_rl
+entity_rl.door_animation_up.tint   = tint_rl
+
+entity_rl.icons                    = { {
   icon = "__base__/graphics/icons/roboport.png",
   tint = tint_rl
 } }
-entity_rl.surface_conditions                  = { mklv_consts.surface_conditions
-    .magnetic_field
-    .fulgora }
+entity_rl.surface_conditions       = { mklv_consts.surface_conditions.magnetic_field.fulgora }
 
-local combined_substation                     = mklv_combined_entity("electric-pole",
+
+local combined_substation                    = mklv_combined_entity("electric-pole",
   "mklv-substation-mk2")
-combined_substation.fast_replaceable_group    = entity.fast_replaceable_group
-combined_substation.pictures.layers[1].tint   = tint
-combined_substation.pictures.layers[1].scale  = 0.25
+combined_substation.fast_replaceable_group   = entity.fast_replaceable_group
+combined_substation.pictures.layers[1].tint  = tint
+combined_substation.pictures.layers[1].scale = 0.25
 
-combined_substation.connection_points         = {
+combined_substation.connection_points        = {
   {
     shadow = {
       copper = { 4.25, -0.375 },
@@ -184,6 +185,7 @@ combined_substation.connection_points         = {
     }
   }
 }
+
 
 local combined_radar                          = mklv_combined_entity("radar", "mklv-radar-mk2")
 combined_radar.fast_replaceable_group         = entity.fast_replaceable_group
@@ -370,6 +372,7 @@ technology.effects = {
     recipe = name_rl
   },
 }
+-- TODO: icon size is wrong when researching
 technology.icons = {
   {
     icon = "__base__/graphics/technology/electric-energy-distribution-2.png",

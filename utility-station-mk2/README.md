@@ -15,26 +15,33 @@ This builds on my other chunk aligned mods:
 
 Adds a Utility Station MK2 that combines the functions of a Roboport and Substation, and optionally Lightning Collector or Radar:
 
+4 variants are available:
+
+- Utility Station MK2: Roboport and Substation
+- Utility Station MK2-L: Roboport, Substation, and Lightning Collector
+- Utility Station MK2-R: Roboport, Substation, and Radar
+- Utility Station MK2-RL: Robport, Substation, Radar, and Lightning Collector
+
+Assembled in a Centrifuge in Space with:
+
+- Utility Station
+- Roboport MK2
+- Substation MK2
+- Radar MK2 (optional)
+- Lightning Collector (optional)
+- Electric Engine Units
+- Uranium Fuel Cells
+- Calcite
+- Tungsten Carbide
+- Holmium Plates
+- Supercapacitors
+- Bioflux
+- Carbon Fiber
+- Fusion Power Cells
+<!-- - TODO: check recipes for useful things that don't have a legendary chain like sulfur -->
+
+FYI:
+
 - Created by putting an uninteractable Substation MK2/Radar MK2/Lightning Collector under Roboport MK2 - no effect on UPS.
-- 4 variants are available:
-  - MK2: Roboport and Substation
-  - MK2-L: Roboport, Substation, and Lightning Collector
-  - MK2-R: Roboport, Substation, and Radar
-  - MK2-RL: Robport, Substation, Radar, and Lightning Collector
-- Assembled in a Centrifuge in Space with:
-  - Utility Station
-  - Roboport MK2
-  - Substation MK2
-  - Radar MK2 (optional)
-  - Lightning Collector (optional)
-  - Electric Engine Units
-  - Uranium Fuel Cells
-  - Calcite
-  - Tungsten Carbide
-  - Holmium Plates
-  - Supercapacitors
-  - Bioflux
-  - Carbon Fiber
-  - Fusion Power Cells
 - Recycles into itself to prevent upcycle cheezing the ingredients.
 - Due to Factorio limitations the circuit wires may not perfectly align with the Substation MK2.
