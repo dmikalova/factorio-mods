@@ -285,7 +285,7 @@ table.insert(item_rl.icons, {
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["mklv-utility-station"])
 
-recipe.autorecycle = false
+recipe.auto_recycle = false
 recipe.category = "centrifuging"
 recipe.name = name
 recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.space }

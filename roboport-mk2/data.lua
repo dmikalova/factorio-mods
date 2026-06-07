@@ -6,7 +6,8 @@ local tint = mklv_consts.tints.acid
 --[[ Entity ]] --
 local entity = table.deepcopy(data.raw["roboport"]["roboport"])
 
-entity.charging_station_count_affected_by_quality = true
+entity.charging_station_count = 16
+-- entity.charging_station_count_affected_by_quality = true
 entity.construction_radius = 69
 entity.corpse = name .. "-remnants"
 entity.logistics_radius = 32
@@ -14,7 +15,7 @@ entity.material_slots_count = 10
 entity.minable.result = name
 entity.name = name
 entity.radar_range = 4
-entity.robot_slots_count = 11
+entity.robot_slots_count = 10
 
 entity.charging_energy = "1MW"
 entity.energy_source.buffer_capacity = "200MJ"
@@ -59,6 +60,7 @@ entity.icons = { {
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
 
+item.default_import_location = "fulgora"
 item.name = name
 item.order = "c[signal]-a[roboport]am2"
 item.place_result = name
@@ -71,7 +73,7 @@ item.icons = { {
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
-recipe.autorecycle = false
+recipe.auto_recycle = false
 recipe.category = "cryogenics"
 recipe.name = name
 recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.fulgora }

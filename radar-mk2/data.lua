@@ -24,6 +24,7 @@ entity.icons = { {
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["radar"])
 
+item.default_import_location = "gleba"
 item.name = name
 item.order = "d[radar]-m[radar]"
 item.place_result = name
@@ -36,7 +37,7 @@ item.icons = { {
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["radar"])
 
-recipe.autorecycle = false
+recipe.auto_recycle = false
 recipe.category = "metallurgy"
 recipe.name = name
 recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.gleba }

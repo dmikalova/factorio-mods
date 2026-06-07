@@ -1,0 +1,15 @@
+{
+  "author": "dmikalova",
+  "dependencies": ["base >= 2.0.0", "space-age", "demolisher-eggs", "mklv-lib"],
+  "description": "Adds invasive soils which can be placed anywhere on Gleba! Creating it is not so easy though...",
+  "factorio_version": "2.0",
+  "homepage": "https://github.com/dmikalova/factorio-mods",
+  "name": "mklv-invasive-soils",
+  "package": {
+    "ignore": ["example.png"],
+    "no_git_tag": true,
+    "sync_portal_details": true
+  },
+  "title": "Invasive Soils",
+  "version": "1.0.6"
+}

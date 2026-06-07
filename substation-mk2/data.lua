@@ -21,19 +21,22 @@ entity.icons = { {
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["substation"])
 
+item.default_import_location = "aquilo"
 item.name = name
 item.order = "a[energy]-m[substation]"
 item.place_result = name
+item.weight = 20000
 
 item.icons = { {
   icon = "__base__/graphics/icons/substation.png",
   tint = tint
 } }
 
+-- TODO: robots all charging on same spot
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["substation"])
 
-recipe.autorecycle = false
+recipe.auto_recycle = false
 recipe.category = "electromagnetics"
 recipe.name = name
 recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.aquilo }

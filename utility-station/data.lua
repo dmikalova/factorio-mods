@@ -29,6 +29,7 @@ entity.circuit_connector.points            = combined_substation.connection_poin
 --[[ Item ]] --
 local item = table.deepcopy(data.raw.item["roboport"])
 
+item.default_import_location = "vulcanus"
 item.name = name
 item.order = "c[signal]-a[roboport]am1"
 item.place_result = name
@@ -49,7 +50,7 @@ item.icons = {
 --[[ Recipe ]] --
 local recipe = table.deepcopy(data.raw.recipe["roboport"])
 
-recipe.autorecycle = false
+recipe.auto_recycle = false
 recipe.category = "organic"
 recipe.name = name
 recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanus }
@@ -57,7 +58,7 @@ recipe.surface_conditions = { mklv_consts.surface_conditions.pressure.vulcanus }
 recipe.ingredients = {
   { type = "item",  name = "roboport",         amount = 1 },
   { type = "item",  name = "substation",       amount = 1 },
-  { type = "item",  name = "raw-fish",         amount = 5 },
+  { type = "item",  name = "raw-fish",         amount = 1 },
   { type = "item",  name = "wood",             amount = 5 },
   { type = "fluid", name = "fluoroketone-hot", amount = 25 },
 }
